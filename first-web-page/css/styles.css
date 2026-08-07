@@ -1,0 +1,149 @@
+body {
+    font-family: 'Jost';
+    margin: 0;
+    padding: 0;
+}
+
+.menu p {
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+li {
+    list-style: none;
+    margin-right: 25px;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(0.10px);
+}
+
+.lista {
+    display: flex;
+}
+
+
+.titular{
+    text-align: center;
+    margin-top: 200px;
+}
+
+h1 {
+    font-size: 60px;
+    margin: 0;
+    color: #FFFFFF; 
+    text-shadow: 0 4px 15px rgba(11, 9, 20, 0.6); 
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 40px;
+    margin-top: -10px;
+    color: rgb(255, 255, 255); 
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+}
+
+a {
+    font-size: 14px;
+    background: linear-gradient(135deg, #9745e8, #5ccdef); 
+    text-decoration: none;
+    color: #FFFFFF;
+    padding: 20px 30px;
+    display: inline-block; 
+    border-radius: 4px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 0 15px rgba(225, 0, 255, 0.4); 
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    background: linear-gradient(135deg, #00F2FE, #4FACFE); 
+    color: #0B0914; 
+    box-shadow: 0 0 25px rgba(0, 242, 254, 0.8);
+    transform: translateY(-3px);
+}
+
+header {
+    background: url(/first-web-page/img/fondo.png);
+    height: 100vh;
+    background-size: cover;
+}
+
+.contenedor {
+    max-width: 1280px;
+    width: 90%;
+    margin: auto;
+}
+
+/*SOBRE MI*/
+
+h3 {
+    text-align: center;
+    font-size: 55px;
+    font-weight: normal;
+    color: #9745e8;
+}
+
+
+.sobremi {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.parrafo-boton {
+    width: 42%;
+}
+
+.parrafo-boton p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.parrafo-boton a {
+    margin-top: 20px;
+}
+
+.habilidades-ser {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.habilidad {
+    width: 25%;
+    padding: 38px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.violeta {
+    background: #BC4CD3;
+}
+
+.celeste {
+    background: #73CEF2;
+
+}
+
+.habilidad h4 {
+    font-size: 30px;
+    margin: 0;
+}
+
+.habilidad img {
+    float: right;
+}
+
+.habilidad p {
+    font-size: 16px;
+    margin: 0;
+}

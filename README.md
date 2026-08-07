@@ -1,86 +1,44 @@
-# HTML & CSS Web Development Course Project
+# Web Development Fundamentals
 
-This repository contains a practical web development project created as part of an **HTML and CSS learning course**.
+## About
 
-The main objective of this project is to understand the fundamentals of web development by building a complete webpage from scratch, applying essential concepts of structure, styling, and visual design.
+This repository contains my web development practice projects created while learning **HTML, CSS, and JavaScript**.
 
-Throughout the course, different frontend concepts and components are implemented, including:
+The exercises included here were developed as part of:
 
-###  Topics Covered
+- **Udemy Course:** *Diseño Web Desde Cero para Principiantes*
+  https://www.udemy.com/course/diseno-web-desde-cero-para-principiantes-gratis/
 
-* **Web Development Fundamentals**
+- **University Course:** *Desarrollo de Aplicaciones Web*
 
-  * Introduction to the essential concepts of web development.
-  * Understanding how web pages are structured.
-  * Learning the foundations before starting programming.
+This repository documents my learning journey through practical projects, where I apply frontend development concepts and progressively improve my skills by building complete web pages in spanish.
 
-* **HTML Structure**
+## Technologies
 
-  * Building the structure of a webpage using HTML.
-  * Working with semantic and essential HTML tags.
-  * Organizing content using headings, sections, text, and layout elements.
+- HTML5
+- CSS3
+- JavaScript
 
-* **CSS Styling**
+## Topics Covered
 
-  * Connecting HTML documents with CSS stylesheets.
-  * Applying colors, typography, spacing, and visual customization.
-  * Implementing external typography using **Google Fonts**.
-
-* **Images & Visual Assets**
-
-  * Managing images within a website.
-  * Working with image sizing and positioning.
-
-* **Real Web Components**
-
-  * Creating a **Header / Navigation Bar (Navbar)**.
-  * Building a visually impactful **Hero Section**.
-  * Developing a **Services Section** to showcase website content.
-
-###  Purpose of this Repository
-
-This repository serves as a **hands-on learning project**, showcasing the concepts learned during the course and demonstrating the process of creating a structured and styled webpage using **HTML and CSS**.
+- Semantic HTML
+- CSS Styling
+- Responsive layouts
+- Google Fonts
+- Navigation Bar
+- Hero Section
+- Services Section
+- DOM basics
+- Basic JavaScript
 
 ---
 
+# Projects
 
-Este repositorio contiene un proyecto práctico de desarrollo web realizado como parte de un **curso de aprendizaje de HTML y CSS**.
+## First Web Page
 
-El objetivo principal de este proyecto es comprender los fundamentos del desarrollo web construyendo una página web completa desde cero, aplicando conceptos esenciales de estructura, estilos y diseño visual.
+<p align="center">
+    <img src="/first-web-page/img/preview.png" width="700" alt="First Web Page">
+</p>
 
-A lo largo del curso se implementan diferentes conceptos y componentes frontend, incluyendo:
-
-###  Temas Cubiertos
-
-* **Fundamentos del Desarrollo Web**
-
-  * Introducción a los conceptos esenciales del desarrollo web.
-  * Comprensión de cómo se estructura una página web.
-  * Bases fundamentales antes de comenzar a programar.
-
-* **Estructura con HTML**
-
-  * Construcción de la estructura de una página utilizando HTML.
-  * Uso de etiquetas semánticas y esenciales.
-  * Organización del contenido mediante títulos, secciones, textos y elementos de estructura.
-
-* **Estilos con CSS**
-
-  * Vinculación de documentos HTML con hojas de estilo CSS.
-  * Aplicación de colores, tipografía, espacios y personalización visual.
-  * Integración de tipografías externas mediante **Google Fonts**.
-
-* **Imágenes y Recursos Visuales**
-
-  * Manejo de imágenes dentro de un sitio web.
-  * Trabajo con tamaños y posicionamiento de imágenes.
-
-* **Componentes Reales de una Página Web**
-
-  * Creación de un **Header / Barra de Navegación (Navbar)**.
-  * Construcción de una **Hero Section** de impacto visual.
-  * Desarrollo de una **Sección de Servicios** para presentar contenido del sitio web.
-
-### Objetivo del Repositorio
-
-Este repositorio funciona como un **proyecto práctico de aprendizaje**, mostrando los conocimientos adquiridos durante el curso y el proceso de construcción de una página web estructurada y estilizada utilizando **HTML y CSS**.
+A simple landing page developed during the first stage of the course to practice HTML structure, CSS styling, and basic page layout.
