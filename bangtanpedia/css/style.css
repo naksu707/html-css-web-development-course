@@ -62,7 +62,7 @@ body {
     text-align: center;
     padding-top: 80px; 
     padding-bottom: 0; 
-    background: url("../img/fondo.jpg");
+    background-color: #f5effa;
     min-height: 100vh;
     height: auto; 
     background-size: cover;
@@ -128,7 +128,7 @@ body {
 
 /***** SOBRE BTS *****/
 #sobre-bts {
-    background: url("../img/fondo2.jpg");
+    background-color: #f5effa;
     padding: 0 0 80px 0;
 }
 

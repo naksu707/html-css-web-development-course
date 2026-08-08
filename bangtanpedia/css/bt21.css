@@ -1,0 +1,146 @@
+/* María José Ospina, proyecto de practica / regalo a mi prima V. */
+.bt21 {
+    background: linear-gradient(rgba(245, 239, 251, 0.85), rgba(245, 239, 251, 0.85)), 
+                url('/bangtanpedia/img/fondo21.png') no-repeat center center / cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    padding: 150px 8% 80px;
+    transition: background 0.5s ease-in-out;
+}
+
+.introduccion-bt21 {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 60px;
+}
+
+.introduccion-bt21 h1 {
+    color: #5b3b8c;
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+
+.introduccion-bt21 p {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.personajes-bt21 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.tarjeta-bt21 {
+    background-color: white;
+    border-radius: 25px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(91, 59, 140, 0.12);
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.tarjeta-bt21:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(91, 59, 140, 0.20);
+}
+
+.tarjeta-bt21 img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.tarjeta-bt21:hover img {
+    transform: scale(1.08);
+}
+
+.tarjeta-bt21 h2 {
+    color: #5b3b8c;
+    font-size: 25px;
+    margin: 5px 0;
+}
+
+.tarjeta-bt21 h3 {
+    color: #8a68b5;
+    margin: 5px 0 15px;
+    font-size: 18px;
+}
+
+.tarjeta-bt21 p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* --- CONTENEDOR Y ESTILO DEL GIF --- */
+.contenedor-gif {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto 30px;
+}
+
+.gif-bt21 {
+    width: 260px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(91, 59, 140, 0.18);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.gif-bt21:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(91, 59, 140, 0.28);
+}
+
+/* VIDEO DE YOUTUBE*/
+.video-bt21 {
+    text-align: center;
+    max-width: 800px;
+    margin: 60px auto 0; 
+}
+
+.video-bt21 h2 {
+    color: #5b3b8c; 
+    font-size: 32px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.contenedor-video {
+    position: relative;
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(91, 59, 140, 0.2);
+    margin: 0 auto;
+}
+
+.contenedor-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Ajuste responsive para pantallas pequeñas */
+@media (max-width: 600px) {
+    .contenedor-imagenes {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .gif-bt21 {
+        transform: rotate(0deg);
+        width: 180px;
+    }
+}

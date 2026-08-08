@@ -1,0 +1,203 @@
+/* María José Ospina, proyecto de practica / regalo a mi prima V. */
+.premios {
+    padding: 130px 8% 80px;
+    background-color: #f5effa;
+    min-height: 100vh;
+}
+
+.gif-hero {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.bts-gif {
+    max-width: 320px;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(91, 59, 140, 0.2);
+}
+
+.intro-premios {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 50px;
+}
+
+.intro-premios h1 {
+    font-size: 44px;
+    color: #5b3b8c;
+    margin-bottom: 15px;
+    font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+.intro-premios p {
+    font-size: 19px;
+    line-height: 1.6;
+    color: #4a4a4a;
+}
+
+/* CORRECCIÓN DE LA BARRA DE ESTADÍSTICAS */
+.estadisticas-premios {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    flex-wrap: wrap; 
+}
+
+.estadistica {
+    flex: 1;
+    min-width: 200px;
+    background: white;
+    padding: 25px 20px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(91, 59, 140, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.estadistica:hover {
+    transform: translateY(-5px);
+}
+
+.icono-stat {
+    font-size: 32px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.estadistica h2 {
+    font-size: 36px;
+    color: #5b3b8c;
+    margin: 5px 0;
+}
+
+.estadistica p {
+    margin: 0;
+    color: #666;
+    font-weight: 500;
+}
+
+/* TARJETAS DE PREMIOS */
+.categoria-premios {
+    max-width: 1200px;
+    margin: 0 auto 60px;
+}
+
+.categoria-premios h2 {
+    font-size: 30px;
+    color: #5b3b8c;
+    margin-bottom: 25px;
+}
+
+.contenedor-premios {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.tarjeta-premio {
+    background-color: white;
+    padding: 28px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(91, 59, 140, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-premio:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(91, 59, 140, 0.18);
+}
+
+/* ENCABEZADO DE TARJETA (LOGO + CANTIDAD DE PREMIOS) */
+.encabezado-tarjeta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.logo-programa {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}
+
+.badge-total {
+    background-color: #5b3b8c;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 6px 14px;
+    border-radius: 50px;
+}
+
+.tarjeta-premio h3 {
+    color: #5b3b8c;
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.tarjeta-premio p {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* LISTA DE AÑOS Y CANCIONES */
+.destacados-premios {
+    background-color: #faf7fd;
+    padding: 15px 18px;
+    border-radius: 12px;
+    border-left: 4px solid #8e68c6;
+    margin-bottom: 15px;
+}
+
+.destacados-premios h4 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: #5b3b8c;
+}
+
+.destacados-premios ul {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 13.5px;
+    color: #444;
+}
+
+.destacados-premios li {
+    margin-bottom: 6px;
+    line-height: 1.4;
+}
+
+.tag-categoria {
+    align-self: flex-start;
+    padding: 6px 12px;
+    border-radius: 15px;
+    background-color: #e9dcf7;
+    color: #5b3b8c;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Responsive para Pantallas Pequeñas */
+@media (max-width: 850px) {
+    .contenedor-premios {
+        grid-template-columns: 1fr;
+    }
+    
+    .estadisticas-premios {
+        flex-direction: column;
+    }
+    
+    .estadistica {
+        width: 100%;
+    }
+}

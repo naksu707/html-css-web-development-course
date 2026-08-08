@@ -1,11 +1,12 @@
 <!-- María José Ospina, proyecto de practica / regalo a mi prima V. -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bangtanpedia/Albumes</title>
+    <title>Bangtanpedia | Álbumes</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/albumes.css">
     <link rel="icon" type="image/webp" href="img/bts-logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +26,7 @@
                         <li><a href="index.html">Inicio</a></li>
                         <li><a href="integrantes.html">Integrantes</a></li>
                         <li><a href="premios.html">Premios</a></li>
-                        <li><a href="albumes.html">Albums</a></li>
+                        <li><a href="albumes.html" class="activo">Albums</a></li>
                         <li><a href="bt21.html">BT21</a></li>
                         <li><a href="https://ibighit.com/ko/bts/profile/" target="_blank">Página Oficial</a></li>
                     </ul>
@@ -33,6 +34,47 @@
             </div>
         </div>
     </header>
+
+    <main class="albumes">
+        <section class="intro-albumes">
+            <h1>Discografía de BTS</h1>
+            <p>
+                Explora la historia musical de BTS a través de sus eras. Selecciona cualquier lanzamiento para ver su lista de canciones.
+                (Ultima actualización: Agosto 2026)
+            </p>
+            <div class="filtros-discografia">
+                <button class="btn-filtro activo" data-categoria="todos">Todos</button>
+                <button class="btn-filtro" data-categoria="Album Coreano">Álbumes Coreanos</button>
+                <button class="btn-filtro" data-categoria="EP / Especial">EPs & Especiales</button>
+                <button class="btn-filtro" data-categoria="Single">Singles</button>
+                <button class="btn-filtro" data-categoria="Album Japones">Japoneses</button>
+            </div>
+        </section>
+        <section class="discografia">
+            <div id="contenedor-albumes" class="contenedor-albumes">
+            </div>
+        </section>
+
+        <div id="modal-album" class="modal-album">
+            <div class="contenido-modal">
+                <button id="cerrar-modal" class="btn-cerrar">&times;</button>
+                <div class="header-modal">
+                    <img id="modal-portada" src="" alt="Portada Álbum" class="portada-modal">
+                    <div class="info-modal-header">
+                        <span id="modal-categoria" class="badge-modal">Categoría</span>
+                        <h2 id="modal-titulo">Título del Álbum</h2>
+                        <p id="modal-fecha">Año de lanzamiento</p>
+                    </div>
+                </div>
+                <div class="seccion-canciones">
+                    <h3>Lista de Canciones (Tracklist)</h3>
+                    <div id="modal-tracklist" class="tracklist-vertical">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="javascript/albumes.js"></script>
 </body>
 </html>
-    

@@ -1,11 +1,12 @@
+/* María José Ospina, proyecto de practica / regalo a mi prima V. */
 .contenedor-integrantes.horizontal {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    max-width: 1100px;
-    margin: 40px auto;
-    position: relative;
-    padding-bottom: 20px;
 }
 
 .integrantes {
@@ -18,16 +19,8 @@
     overflow: hidden;
     margin: 0;
     padding: 0;
-}
-
-.contenedor-integrantes.horizontal {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    padding-top: 5.2%;
+    background-color: #f5effa;
 }
 
 .tarjeta-integrante {
@@ -56,6 +49,12 @@
 .tarjeta-integrante:hover {
     transform: translateY(-15px) scale(1.05);
     z-index: 15 !important;
+}
+
+.tarjeta-integrante.activo {
+    z-index: 20 !important;
+    filter: drop-shadow(0 0 20px rgba(147, 112, 219, 0.85)) drop-shadow(0 10px 15px rgba(0, 0, 0, 0.5));
+    transform: translateY(-10px) scale(1.03);
 }
 
 .informacion-integrante.flotante {
