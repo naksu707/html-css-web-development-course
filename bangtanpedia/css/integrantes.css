@@ -8,11 +8,32 @@
     padding-bottom: 20px;
 }
 
+.integrantes {
+    width: 100vw;
+    min-height: calc(100vh - 80px); 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: center;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor-integrantes.horizontal {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
 
 .tarjeta-integrante {
     position: relative;
     cursor: pointer;
-    margin-left: -70px; 
+    margin-left: -4vw;
     transition: transform 0.3s ease, filter 0.3s ease;
     background: transparent;
     box-shadow: none;
@@ -24,7 +45,7 @@
 }
 
 .tarjeta-integrante img {
-    height: 420px; 
+    height: 441px; 
     width: auto;
     display: block;
     object-fit: contain;
