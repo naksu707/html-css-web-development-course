@@ -104,12 +104,19 @@ body {
 }
 
 .ballena {
-    position: absolute;
-    right: 60px;
-    bottom: 80px;
-    width: 60px;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 90px;
+    height: auto;
+    z-index: 100;
+    filter: drop-shadow(0px 4px 10px rgba(91, 59, 140, 0.3));
     cursor: pointer;
-    animation: flotar 1.5s ease-in-out infinite;
+    transition: transform 0.2s ease-in-out;
+}
+
+.ballena.flotando {
+    animation: flotar 3s ease-in-out infinite;
 }
 
 @keyframes flotar {
