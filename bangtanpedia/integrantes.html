@@ -1,0 +1,81 @@
+<!-- María José Ospina, proyecto de practica / regalo a mi prima V. -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><title>Bangtanpedia | Integrantes</title></title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/integrantes.css">
+    <link rel="icon" type="image/webp" href="img/bts-logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Jost:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="contenedor">
+            <div class="menu">
+                <div class="brand">
+                    <img class="logo" src="img/logo.webp" alt="BTS Logo">
+                    <p>Bangtanpedia</p>
+                </div>
+                <nav>
+                    <ul class="lista">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="integrantes.html">Integrantes</a></li>
+                        <li><a href="premios.html">Premios</a></li>
+                        <li><a href="albumes.html">Albums</a></li>
+                        <li><a href="bt21.html">BT21</a></li>
+                        <li><a href="https://ibighit.com/ko/bts/profile/" target="_blank">Página Oficial</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <section class="integrantes">
+        <div class="titulo-seccion">
+            <h1>BTS</h1>
+            <p>
+                Conoce a los siete integrantes de BTS y descubre un poco más
+                sobre cada uno de ellos.
+            </p>
+        </div>
+            <div class="contenedor-integrantes horizontal">
+            <div class="tarjeta-integrante" data-integrante="rm">
+                <img src="img/rm.png" alt="RM">
+            </div>
+            <div class="tarjeta-integrante" data-integrante="jin">
+                <img src="img/jin.png" alt="Jin">
+            </div>
+            <div class="tarjeta-integrante" data-integrante="suga">
+                <img src="img/suga.png" alt="SUGA">
+            </div>
+            <div class="tarjeta-integrante" data-integrante="jhope">
+                <img src="img/jhope.png" alt="j-hope">
+            </div>
+            <div class="tarjeta-integrante" data-integrante="jimin">
+                <img src="img/jimmin.png" alt="Jimin">
+            </div>
+            <div class="tarjeta-integrante" data-integrante="v">
+                <img src="img/tae.png" alt="V">
+            </div>
+            <div class="tarjeta-integrante" data-integrante="jungkook">
+                <img src="img/jungkook.png" alt="Jung Kook">
+            </div>
+        </div>
+        <div id="informacion-integrante" class="informacion-integrante flotante">
+            <button id="cerrar-info">×</button>
+            <div class="contenido-modal">
+                <h2 id="nombre-integrante"></h2>
+                <h3 id="nombre-real"></h3>
+                <p id="descripcion-integrante"></p>
+            </div>
+        </div>
+        </div>
+    </section>
+    <script src="javascript/integrantes.js"></script>
+</body>
+</html>
+    

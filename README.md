@@ -41,4 +41,17 @@ This repository documents my learning journey through practical projects, where 
     <img src="/first-web-page/img/preview.png" width="700" alt="First Web Page">
 </p>
 
-A simple landing page developed during the first stage of the course to practice HTML structure, CSS styling, and basic page layout.
+## Bangtanpedia
+<p align="center">
+    <img src="/first-web-page/img/preview.png" width="700" alt="First Web Page">
+</p>
+
+## Arepas de la Casa
+<p align="center">
+    <img src="/first-web-page/img/preview.png" width="700" alt="First Web Page">
+</p>
+
+## Volaris
+<p align="center">
+    <img src="/first-web-page/img/preview.png" width="700" alt="First Web Page">
+</p>
