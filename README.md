@@ -43,7 +43,7 @@ This repository documents my learning journey through practical projects, where 
 
 ## Bangtanpedia
 <p align="center">
-    <img src="" width="700" alt="First Web Page">
+    <img src="/bangtanpedia/img/preview.png" width="700" alt="First Web Page">
 </p>
 
 ## Arepas de la Casa
