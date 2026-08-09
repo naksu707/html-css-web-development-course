@@ -43,15 +43,15 @@ This repository documents my learning journey through practical projects, where 
 
 ## Bangtanpedia
 <p align="center">
-    <img src="/bangtanpedia/img/preview.png" width="700" alt="First Web Page">
+    <img src="/bangtanpedia/img/preview.png" width="700" alt="Bangtanpedia">
 </p>
 
 ## Arepas de la Casa
 <p align="center">
-    <img src="" width="700" alt="First Web Page">
+    <img src="/arepas-de-la-casa/img/preview.png" width="700" alt="Arepas de la Casa">
 </p>
 
 ## Volaris
 <p align="center">
-    <img src="" width="700" alt="First Web Page">
+    <img src="" width="700" alt="Volaris">
 </p>

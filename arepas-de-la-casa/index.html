@@ -1,11 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arepas de la casa</title>
+    <title>Arepas de la Casa</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/webp" href="img/iconos/arepa.png">
 </head>
 <body>
-    
+    <header class="header">
+        <div class="contenedor-header">
+            <a href="index.html" class="logo">Arepas de la Casa</a>
+            <div class="buscador">
+                <input type="text" id="buscador" placeholder="Buscar producto">
+                <button type="button" id="btn-buscar">
+                    <img src="img/iconos/lupa.png" alt="Buscar" class="icono">
+                </button>
+            </div>
+            <div class="acciones">
+                <button type="button" class="btn-carrito" id="btn-carrito">
+                    <img src="img/iconos/carrito-de-compras.png" alt="Carrito" class="icono">
+                    <span id="contador-carrito">0</span>
+                </button>
+                <button type="button" class="btn-login" id="btn-login">Iniciar sesión</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-contenido">
+                <h1>Arepas de la Casa</h1>
+                <p>La tradición de arepas caseras, directo a tu mesa.</p>
+                <a href="#productos" class="btn-productos">Ver productos</a>
+            </div>
+        </section>
+        <section id="productos" class="productos">
+            <h2>Nuestras mejores arepas</h2>
+            <div id="contenedor-productos" class="contenedor-productos"></div>
+            <div class="controles-carrusel">
+                <button type="button" id="anterior" class="flecha">‹</button>
+                <div id="indicadores" class="indicadores"></div>
+                <button type="button" id="siguiente" class="flecha">›</button>
+            </div>
+        </section>
+        <div id="modal-comentarios" class="modal">
+            <div class="modal-contenido">
+                <span class="cerrar-modal" id="btn-cerrar-modal">&times;</span>
+                <h3 id="modal-titulo-producto">Comentarios</h3>
+                <div id="modal-lista-comentarios" class="contenedor-opiniones-modal"></div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>© 2026 Arepas de la Casa. Todos los derechos reservados.</p>
+        <div class="redes">
+            <a href="#" aria-label="X">𝕏</a>
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">◎</a>
+        </div>
+    </footer>
+    <script src="javascript/script.js"></script>
 </body>
 </html>
