@@ -1,0 +1,116 @@
+.contenedor-login {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    padding-top: 11px;        
+    padding-bottom: 40px;    
+    min-height: auto;         
+}
+
+.card-login {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+}
+
+.avatar-header {
+    margin-bottom: 15px;
+}
+
+.icono-detective {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.campo-input {
+    position: relative;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.icono-campo {
+    position: absolute;
+    left: 12px;
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+}
+
+.campo-input input {
+    width: 100%;
+    padding: 12px 12px 12px 42px; 
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.campo-input input:focus {
+    border-color: #ff9800; 
+}
+
+.btn-ingresar {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-ingresar:hover {
+    background-color: #e68a00;
+}
+
+.texto-registro {
+    margin-top: 18px;
+    font-size: 14px;
+    color: #555555;
+    text-align: center;
+}
+
+.texto-registro p {
+    margin: 0;
+}
+
+.link-registro {
+    color: #ff9800; 
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.link-registro:hover {
+    color: #e68a00;
+    text-decoration: underline;
+}
+
+/* Quitar el fondo azul del autocompletado de Chrome / Edge / Safari */
+.campo-input input:-webkit-autofill,
+.campo-input input:-webkit-autofill:hover, 
+.campo-input input:-webkit-autofill:focus, 
+.campo-input input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
+    -webkit-text-fill-color: #333333 !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* ==========================================
+   DISEÑO RESPONSIVO
+========================================== */
+
+@media (max-width: 768px) {
+    .card-login {
+        padding: 15px 12px; 
+    }
+}

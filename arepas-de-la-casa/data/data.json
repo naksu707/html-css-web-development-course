@@ -140,11 +140,12 @@
   "usuarios": [
     {
       "id": 1,
-      "nombre": "María Gómez",
-      "foto": "img/usuarios/maria.jpg",
-      "correo": "maria.gomez@email.com",
+      "nombre": "María Ospina",
+      "foto": "img/usuarios/maria.jpeg",
+      "correo": "maria.ospina@gmail.com",
       "celular": "3001234567",
-      "metodo_de_pago": "Tarjeta de crédito",
+      "direccion": "Calle 45 # 12-34",
+      "metodo_de_pago": "Efectivo",
       "pedidos": [1, 2, 5, 7],
       "contraseña": "Maria1234"
     },
@@ -154,6 +155,7 @@
       "foto": "img/usuarios/carlos.jpg",
       "correo": "carlos.rodriguez@email.com",
       "celular": "3012345678",
+      "direccion": "Carrera 7 # 89-12",
       "metodo_de_pago": "PSE",
       "pedidos": [1, 3, 4, 8, 10],
       "contraseña": "Carlos1234"
@@ -164,6 +166,7 @@
       "foto": "img/usuarios/laura.jpg",
       "correo": "laura.martinez@email.com",
       "celular": "3023456789",
+      "direccion": "Avenida 15 # 100-20",
       "metodo_de_pago": "Nequi",
       "pedidos": [2, 6, 9, 11],
       "contraseña": "Laura1234"
@@ -174,6 +177,7 @@
       "foto": "img/usuarios/andres.jpg",
       "correo": "andres.lopez@email.com",
       "celular": "3034567890",
+      "direccion": "Calle 80 # 52-18",
       "metodo_de_pago": "Tarjeta débito",
       "pedidos": [3, 5, 8, 12, 14],
       "contraseña": "Andres1234"
@@ -184,17 +188,19 @@
       "foto": "img/usuarios/sofia.jpg",
       "correo": "sofia.torres@email.com",
       "celular": "3045678901",
+      "direccion": "Carrera 43A # 1-50",
       "pedidos": [4, 6, 7, 10, 13, 15],
       "contraseña": "Sofia1234"
     },
     {
       "id": 6,
-      "nombre": "Daniel Castro",
-      "foto": "img/usuarios/daniel.jpg",
-      "correo": "daniel.castro@email.com",
+      "nombre": "Sylus",
+      "foto": "img/usuarios/sylus.jpg",
+      "correo": "sylus@email.com",
       "celular": "3056789012",
+      "direccion": "Calle 10 # 30-05",
       "pedidos": [1, 8, 9, 11, 12, 14, 15],
-      "contraseña": "Daniel1234"
+      "contraseña": "Sylus1234"
     }
   ],
 

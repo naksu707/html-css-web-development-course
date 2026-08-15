@@ -1,0 +1,390 @@
+.contenedor-perfil {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    box-sizing: border-box;
+}
+
+.tarjeta-usuario {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.titulo-seccion {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.contenido-usuario {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.avatar-perfil img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff9800;
+}
+
+.datos-perfil {
+    flex: 1;
+    min-width: 220px;
+}
+
+.datos-perfil h1 {
+    font-size: 1.6rem;
+    color: #1a1a1a;
+    margin: 0 0 8px 0;
+}
+
+.datos-perfil p {
+    margin: 4px 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.btn-editar {
+    background-color: #f4b51c;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-editar:hover {
+    background-color: #d69b10;
+}
+
+.grid-perfil {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    align-items: start;
+}
+
+.bloque-perfil {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.titulo-bloque {
+    font-size: 1.1rem;
+    text-align: center;
+    color: #222;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Tabla de Pedidos */
+.tabla-contenedor {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tabla-pedidos {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.tabla-pedidos th {
+    background-color: #f8f8f8;
+    color: #444;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid #eee;
+}
+
+.tabla-pedidos td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #eee;
+    color: #555;
+}
+
+.btn-detalles {
+    background-color: #f4b51c;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-detalles:hover {
+    background-color: #d6990a;
+}
+
+/* Paginación */
+.paginacion-pedidos {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 20px;
+}
+
+.btn-page {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 5px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.btn-page.activa {
+    background-color: #ff9800;
+    color: white;
+    border-color: #ff9800;
+}
+
+/* Comentarios y Calificaciones */
+.lista-comentarios-perfil {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.tarjeta-comentario {
+    display: flex;
+    gap: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.tarjeta-comentario:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.img-comentario {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.info-comentario {
+    flex: 1;
+}
+
+.cabecera-comentario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cabecera-comentario h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #222;
+}
+
+.fecha-comentario {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.estrellas-comentario {
+    font-size: 0.95rem;
+    margin: 2px 0 6px 0;
+}
+
+.texto-comentario {
+    margin: 0;
+    font-size: 0.88rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+/* Modal edición */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+.modal-overlay.activo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-contenido {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 25px 30px;
+    width: 90%;
+    max-width: 420px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.activo .modal-contenido {
+    transform: translateY(0);
+}
+
+.modal-cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-cabecera h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #222;
+}
+
+.btn-cerrar {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: #666;
+}
+
+.modal-acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-secundario {
+    background: #e0e0e0;
+    color: #333;
+    border: none;
+    padding: 9px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-primario {
+    background: #ff9800;
+    color: #ffffff;
+    border: none;
+    padding: 9px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-primario:hover {
+    background: #e68a00;
+}
+
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.grupo-input label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #444;
+}
+
+.grupo-input input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #333;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.grupo-input input:focus {
+    border-color: #ff9800;
+    box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.2);
+}
+
+/* Estilos para el Modal de Detalles del Pedido */
+.modal-detalles-contenido {
+    max-width: 400px;
+}
+
+.cuerpo-detalles {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin: 15px 0 20px 0;
+}
+
+.img-detalle-modal {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 2px solid #ff9800;
+}
+
+.info-detalle-modal p {
+    margin: 6px 0;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.precio-destacado {
+    color: #e67e22;
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+/* ==========================================
+   DISEÑO RESPONSIVO
+   ========================================== */
+@media (max-width: 850px) {
+    .grid-perfil {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .contenido-usuario {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .accion-perfil {
+        width: 100%;
+    }
+
+    .btn-editar {
+        width: 100%;
+    }
+}

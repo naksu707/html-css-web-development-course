@@ -33,8 +33,52 @@
             </div>
         </div>
     </header>
+    <section class="hero-2"></section>
     <main>
-       <section class="hero-2"></section>
+       <main>
+            <form id="form-registro" class="tarjeta-registro">
+                <h2>Crear Cuenta</h2>
+                <div class="avatar-header">
+                    <img src="img/iconos/detective.gif" alt="Detective" class="icono-detective">
+                </div>
+                <div class="grupo-input">
+                    <label for="reg-nombre">Nombre completo *</label>
+                    <input type="text" id="reg-nombre" required placeholder="Ej: María Gómez">
+                </div>
+                <div class="grupo-input">
+                    <label for="reg-foto">Foto de perfil *</label>
+                    <input type="file" id="reg-foto" accept="image/*" required>
+                </div>
+                <div class="grupo-input">
+                    <label for="reg-correo">Correo electrónico *</label>
+                    <input type="email" id="reg-correo" required placeholder="correo@ejemplo.com">
+                </div>
+                <div class="grupo-input">
+                    <label for="reg-celular">Celular *</label>
+                    <input type="tel" id="reg-celular" required placeholder="3001234567">
+                </div>
+                <div class="grupo-input">
+                    <label for="reg-direccion">Dirección *</label>
+                    <input type="text" id="reg-direccion" required placeholder="Calle 45 # 12-34">
+                </div>
+                <div class="grupo-input">
+                    <label for="reg-metodo-pago">Método de pago preferido *</label>
+                    <select id="reg-metodo-pago" required>
+                        <option value="" disabled selected>Selecciona una opción</option>
+                        <option value="efectivo">Efectivo</option>
+                        <option value="nequi">Nequi / Daviplata</option>
+                        <option value="tarjeta">Tarjeta Débito / Crédito</option>
+                    </select>
+                </div>
+                <div class="grupo-input">
+                    <label for="reg-password">Contraseña *</label>
+                    <input type="password" id="reg-password" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn-registro">Registrarse</button>
+                <p class="texto-login">¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
+            </form>
+        </section>
+    </main>
     </main>
     <footer class="footer">
         <p>© 2026 Arepas de la Casa. Todos los derechos reservados.</p>
@@ -45,5 +89,6 @@
         </div>
     </footer>
     <script src="javascript/script.js"></script>
+    <script src="javascript/registro.js"></script>
 </body>
 </html>

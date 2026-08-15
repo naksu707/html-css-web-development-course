@@ -281,3 +281,66 @@ window.addEventListener("storage", (e) => {
         actualizarContadorCarrito();
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    actualizarEstadoSesion();
+});
+
+//PERFIL - NOMBRE USUARIO
+function actualizarEstadoSesion() {
+    const contenedorAcciones = document.getElementById('acciones-menu');
+    const usuarioActivo = JSON.parse(localStorage.getItem('usuario_activo')) || JSON.parse(localStorage.getItem('usuarioActivo'));
+
+    if (!contenedorAcciones) return;
+
+    if (usuarioActivo) {
+        const primerNombre = usuarioActivo.nombre ? usuarioActivo.nombre.split(' ')[0] : 'Usuario';
+
+        const botonLogin = document.getElementById('btn-login');
+        if (botonLogin) botonLogin.remove();
+
+        const sesionExistente = document.getElementById('contenedor-usuario');
+        if (sesionExistente) sesionExistente.remove();
+
+        const contenedorUsuario = document.createElement('div');
+        contenedorUsuario.id = 'contenedor-usuario';
+        contenedorUsuario.className = 'contenedor-usuario';
+        
+        contenedorUsuario.innerHTML = `
+            <a href="perfil.html" class="link-perfil-usuario">Hola, ${primerNombre}</a>
+            <button type="button" id="btn-logout" class="btn-logout">Cerrar sesión</button>
+        `;
+
+        contenedorAcciones.appendChild(contenedorUsuario);
+
+        document.getElementById('btn-logout').addEventListener('click', cerrarSesion);
+    } else {
+        const btnLogin = document.getElementById('btn-login');
+        if (btnLogin) {
+            btnLogin.onclick = () => {
+                window.location.href = 'login.html';
+            };
+        }
+    }
+}
+
+function cerrarSesion() {
+    
+    localStorage.removeItem('usuario_activo');
+    localStorage.removeItem('usuarioActivo');
+    localStorage.removeItem('usuarioLogueado');
+
+    if (typeof Swal !== 'undefined') {
+        Swal.fire({
+            icon: 'success',
+            title: 'Sesión cerrada',
+            text: 'Has cerrado sesión correctamente.',
+            timer: 1500,
+            showConfirmButton: false
+        }).then(() => {
+            window.location.href = 'index.html';
+        });
+    } else {
+        window.location.href = 'index.html';
+    }
+}

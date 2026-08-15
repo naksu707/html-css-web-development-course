@@ -6,7 +6,7 @@
     <title>Arepas de la Casa - Carrito</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/baner2.css">
-    <link rel="stylesheet" href="css/carrito.css">
+    <link rel="stylesheet" href="css/login.css">
     <link rel="icon" type="image/webp" href="img/iconos/arepa.png">
 </head>
 <body>
@@ -34,6 +34,35 @@
         </div>
     </header>
     <section class="hero-2"></section>
+    <main class="contenedor-login">
+        <div class="card-login">
+            
+            <div class="avatar-header">
+                <img src="img/iconos/detective.gif" alt="Detective" class="icono-detective">
+            </div>
+
+            <h2>Iniciar Sesión</h2>
+
+            <form id="form-login" class="form-login">
+                
+                <div class="campo-input">
+                    <img src="img/iconos/perfil.gif" alt="Usuario" class="icono-campo">
+                    <input type="email" id="email" placeholder="Correo electrónico" required>
+                </div>
+
+                <div class="campo-input">
+                    <img src="img/iconos/contrasena.gif" alt="Contraseña" class="icono-campo">
+                    <input type="password" id="password" placeholder="Contraseña" required>
+                </div>
+
+                <button type="submit" class="btn-ingresar">Ingresar</button>
+
+                <div class="texto-registro">
+                    <p>¿Aún no tienes una cuenta? <a href="registro.html" class="link-registro">Regístrate aquí</a></p>
+                </div>
+            </form>
+        </div>
+    </main>
     <footer class="footer">
         <p>© 2026 Arepas de la Casa. Todos los derechos reservados.</p>
         <div class="redes">
@@ -43,7 +72,7 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="javascript/carrito.js"></script>
+    <script src="javascript/login.js"></script>
     <script src="javascript/script.js"></script>
 
 </body>

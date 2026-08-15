@@ -167,3 +167,56 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const usuarioActivo = JSON.parse(localStorage.getItem('usuario_activo')) || JSON.parse(localStorage.getItem('usuarioActivo'));
+
+    if (!usuarioActivo) return;
+
+    const bannerLogin = document.getElementById('banner-login');
+    const mensajePerfil = document.getElementById('mensaje-perfil');
+    if (bannerLogin) bannerLogin.style.display = 'none';
+    if (mensajePerfil) mensajePerfil.style.display = 'block';
+
+    const inputNombre = document.getElementById('nombre');
+    const inputEmail = document.getElementById('email');
+    const inputTelefono = document.getElementById('telefono');
+    const inputDireccion = document.getElementById('direccion');
+
+    if (inputNombre) {
+        inputNombre.value = usuarioActivo.nombre || usuarioActivo.nombreCompleto || '';
+        inputNombre.readOnly = true;
+        inputNombre.classList.add('campo-bloqueado');
+    }
+
+    if (inputEmail) {
+        inputEmail.value = usuarioActivo.correo || usuarioActivo.email || '';
+        inputEmail.readOnly = true;
+        inputEmail.classList.add('campo-bloqueado');
+    }
+
+    if (inputTelefono) {
+        inputTelefono.value = usuarioActivo.celular || usuarioActivo.telefono || '';
+        inputTelefono.readOnly = true;
+        inputTelefono.classList.add('campo-bloqueado');
+    }
+
+    if (inputDireccion && usuarioActivo.direccion) {
+        inputDireccion.value = usuarioActivo.direccion;
+    }
+
+    const metodoTexto = (usuarioActivo.metodo_de_pago || usuarioActivo.metodoPago || '').toLowerCase();
+    let valorRadio = 'efectivo';
+
+    if (metodoTexto.includes('tarjeta') || metodoTexto.includes('crédito') || metodoTexto.includes('débito')) {
+        valorRadio = 'tarjeta';
+    } else if (metodoTexto.includes('nequi') || metodoTexto.includes('daviplata') || metodoTexto.includes('pse')) {
+        valorRadio = 'nequi';
+    }
+
+    const radioPago = document.querySelector(`input[name="metodoPago"][value="${valorRadio}"]`);
+    if (radioPago) {
+        radioPago.checked = true;
+        radioPago.dispatchEvent(new Event('change'));
+    }
+});

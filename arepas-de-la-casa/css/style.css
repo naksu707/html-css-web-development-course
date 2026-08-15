@@ -33,6 +33,7 @@ input {
     box-sizing: border-box;
 }
 
+
 .contenedor-header {
     display: flex;
     justify-content: space-between;
@@ -165,6 +166,15 @@ input {
     color: #222;
 }
 
+/* Quitar el fondo del autocompletado en el buscador */
+.buscador input:-webkit-autofill,
+.buscador input:-webkit-autofill:hover, 
+.buscador input:-webkit-autofill:focus, 
+.buscador input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+    -webkit-text-fill-color: #ffffff !important; /* Mantiene la letra blanca */
+    transition: background-color 5000s ease-in-out 0s;
+}
 
 /* =========================
    HERO
@@ -507,6 +517,48 @@ input {
     color: #000000;
 }
 
+/*user*/
+
+.contenedor-usuario {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nombre-usuario {
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 0.95rem;
+}
+
+.btn-logout {
+    background-color: #f4b51c;
+    color: #ffffff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-logout:hover {
+    background-color: #db9f14;
+}
+
+.link-perfil-usuario {
+    font-weight: 600;
+    color: #ffffff; 
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: opacity 0.2s ease, text-decoration 0.2s ease;
+}
+
+.link-perfil-usuario:hover {
+    color: #db9f14;
+    opacity: 0.85;
+}
+
 /* ==========================================
    DISEÑO RESPONSIVO
 ========================================== */
@@ -681,6 +733,28 @@ input {
     .btn-comentarios {
         padding: 5px 8px;
         font-size: 11px;
+    }
+
+    /* USUARIO */
+    .contenedor-usuario {
+        flex-direction: column;
+        align-items: center;  
+        justify-content: center;
+        gap: 16px;            
+        width: 100%;
+        margin-top: 12px;    
+    }
+
+    .link-perfil-usuario {
+        text-align: center;
+        font-size: 1.05rem;   
+    }
+
+    .btn-logout {
+        width: 80%;           
+        max-width: 200px;
+        text-align: center;
+        padding: 10px 16px;
     }
 
     /* FOOTER */

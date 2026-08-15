@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arepas de la Casa</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/baner2.css">
+    <link rel="icon" type="image/webp" href="img/iconos/arepa.png">
+</head>
+<body>
+    <header class="header">
+         <div class="contenedor-header">
+            <a href="index.html" class="logo">Arepas <br class="salto-movil">de la Casa</a>
+            <div class="buscador">
+                <input type="text" id="buscador" placeholder="Buscar producto">
+                <button type="button" id="btn-buscar">
+                    <img src="img/iconos/lupa.png" alt="Buscar" class="icono">
+                </button>
+                <ul id="lista-sugerencias" class="lista-sugerencias"></ul>
+            </div>
+            <button type="button" class="btn-hamburguesa" id="btn-hamburguesa">
+                <img src="img/iconos/lista.png" alt="hamburguesa" class="icono">
+            </button>
+            <div class="acciones" id="acciones-menu">
+                <button type="button" class="btn-carrito" id="btn-carrito">
+                    <img src="img/iconos/carrito-de-compras.png" alt="Carrito" class="icono">
+                    <span id="carri-text">Carrito</span>
+                    <span id="contador-carrito">0</span>
+                </button>
+                <button type="button" class="btn-login" id="btn-login">Iniciar sesión</button>
+            </div>
+        </div>
+    </header>
+    <section class="hero-2"></section>
+    <main class="contenedor-perfil">
+        <section class="tarjeta-usuario">
+            <h2 class="titulo-seccion">Información de Usuario</h2>
+            <div class="contenido-usuario">
+                <div class="avatar-perfil">
+                    <img id="perfil-foto" src="" alt="Foto de Perfil">
+                </div>
+                <div class="datos-perfil">
+                    <h1 id="perfil-nombre">Cargando...</h1>
+                    <p><strong>Correo electrónico:</strong> <span id="perfil-correo">-</span></p>
+                    <p><strong>Teléfono:</strong> <span id="perfil-telefono">-</span></p>
+                </div>
+                <div class="accion-perfil">
+                    <button type="button" id="btn-editar-perfil" class="btn-editar">Editar Perfil</button>
+                </div>
+            </div>
+        </section>
+        <div class="grid-perfil">
+            <section class="bloque-perfil">
+                <h2 class="titulo-bloque">TUS PEDIDOS</h2>
+                <div class="tabla-contenedor">
+                    <table class="tabla-pedidos">
+                        <thead>
+                            <tr>
+                                <th>Nº Pedido</th>
+                                <th>Fecha</th>
+                                <th>Estado</th>
+                                <th>Subtotal</th>
+                                <th>Detalles</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-pedidos-body"></tbody>
+                    </table>
+                </div>
+                <div class="paginacion-pedidos">
+                    <button type="button" class="btn-page">&laquo;</button>
+                    <button type="button" class="btn-page activa">1</button>
+                    <button type="button" class="btn-page">&raquo;</button>
+                </div>
+            </section>
+            <section class="bloque-perfil">
+                <h2 class="titulo-bloque">CALIFICACIONES Y COMENTARIOS</h2>
+                <div class="lista-comentarios-perfil" id="lista-comentarios"></div>
+            </section>
+        </div>
+        <div id="modal-editar" class="modal-overlay">
+            <div class="modal-contenido">
+                <div class="modal-cabecera">
+                    <h2>Editar Perfil</h2>
+                    <button type="button" id="btn-cerrar-modal" class="btn-cerrar">&times;</button>
+                </div>
+                <form id="form-editar-perfil">
+                    <div class="grupo-input">
+                        <label for="input-nombre">Nombre completo</label>
+                        <input type="text" id="input-nombre" required>
+                    </div>
+                    <div class="grupo-input">
+                        <label for="input-correo">Correo electrónico</label>
+                        <input type="email" id="input-correo" required>
+                    </div>
+                    <div class="grupo-input">
+                        <label for="input-telefono">Teléfono</label>
+                        <input type="tel" id="input-telefono" required>
+                    </div>
+                    <div class="modal-acciones">
+                        <button type="button" id="btn-cancelar" class="btn-secundario">Cancelar</button>
+                        <button type="submit" class="btn-primario">Guardar Cambios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div id="modal-detalles" class="modal-overlay">
+            <div class="modal-contenido modal-detalles-contenido">
+                <div class="modal-cabecera">
+                    <h2>Detalles del Pedido</h2>
+                    <button type="button" id="btn-cerrar-detalles" class="btn-cerrar">&times;</button>
+                </div>
+                <div class="cuerpo-detalles">
+                    <img id="detalle-img" src="" alt="Producto" class="img-detalle-modal">
+                    <div class="info-detalle-modal">
+                        <p><strong>Pedido:</strong> <span id="detalle-nombre"></span></p>
+                        <p><strong>Relleno:</strong> <span id="detalle-relleno"></span></p>
+                        <p><strong>Precio:</strong> <span id="detalle-precio" class="precio-destacado"></span></p>
+                    </div>
+                </div>
+                <div class="modal-acciones">
+                    <button type="button" id="btn-aceptar-detalles" class="btn-primario">Aceptar</button>
+                </div>
+            </div>
+</div>
+    </main>
+    <footer class="footer">
+        <p>© 2026 Arepas de la Casa. Todos los derechos reservados.</p>
+        <div class="redes">
+            <a href="#" aria-label="X">𝕏</a>
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">◎</a>
+        </div>
+    </footer>
+    <script src="javascript/script.js"></script>
+    <script src="javascript/perfil.js"></script>
+</body>
+</html>

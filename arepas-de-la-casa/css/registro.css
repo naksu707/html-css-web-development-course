@@ -1,0 +1,164 @@
+.contenedor-registro {
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+    width: 100%;            
+    min-height: calc(100vh - 200px);
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.tarjeta-registro {
+    margin: 0 auto;         
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 35px 30px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-sizing: border-box;
+    
+}
+
+.tarjeta-registro h2 {
+    text-align: center;
+    color: #2c2c2c;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+.avatar-header {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.icono-detective {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+
+/* Campos de entrada */
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.grupo-input label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 6px;
+}
+
+.grupo-input input,
+.grupo-input select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.grupo-input input:focus,
+.grupo-input select:focus {
+    border-color: #f39c12;
+    box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.2);
+}
+
+/* Estilo para el input file */
+.grupo-input input[type="file"] {
+    padding: 8px;
+    cursor: pointer;
+    background-color: #fafafa;
+}
+
+.grupo-input input[type="file"]::-webkit-file-upload-button {
+    background-color: #e0e0e0;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-right: 10px;
+    transition: background-color 0.2s;
+}
+
+.grupo-input input[type="file"]::-webkit-file-upload-button:hover {
+    background-color: #d0d0d0;
+}
+
+/* Botón principal */
+.btn-registro {
+    width: 100%;
+    padding: 12px;
+    background-color: #f39c12;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-registro:hover {
+    background-color: #d3830e;
+}
+
+.btn-registro:active {
+    transform: scale(0.99);
+}
+
+/* Enlace a Login */
+.texto-login {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.texto-login a {
+    color: #f39c12;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.texto-login a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==========================================
+   DISEÑO RESPONSIVO
+========================================== */
+
+@media (max-width: 768px) {
+    .contenedor-registro {
+        padding: 15px 12px; 
+    }
+
+    .tarjeta-registro {
+        width: 92%;
+        padding: 20px 16px;
+        border-radius: 16px;
+    }
+
+    .tarjeta-registro h2 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+
+    .grupo-input {
+        margin-bottom: 12px;
+    }
+}

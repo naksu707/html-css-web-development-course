@@ -99,6 +99,28 @@ function sincronizarCheckboxesConTexto(texto) {
     });
 }
 
+function sincronizarCheckboxesConTexto(texto) {
+    const textoNorm = normalizarTexto(texto);
+
+    if (textoNorm === "") return;
+
+    const checkboxesMaiz = document.querySelectorAll('input[name="maiz"]');
+    checkboxesMaiz.forEach(cb => {
+        const valNorm = normalizarTexto(cb.value);
+        cb.checked = textoNorm.includes(valNorm);
+    });
+
+    const checkboxesRelleno = document.querySelectorAll('input[name="relleno"]');
+    checkboxesRelleno.forEach(cb => {
+        const valNorm = normalizarTexto(cb.value);
+        if (valNorm === "especial") {
+            cb.checked = textoNorm.includes("especial") || textoNorm.includes("mixto");
+        } else {
+            cb.checked = textoNorm.includes(valNorm);
+        }
+    });
+}
+
 function aplicarFiltros() {
     const inputBuscador = document.getElementById("buscador");
     const textoBusqueda = inputBuscador ? inputBuscador.value.trim() : "";
