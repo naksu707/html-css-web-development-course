@@ -6,7 +6,8 @@
       "foto": "img/productos/arepa-pollo.png",
       "tipo_de_maiz": "Maíz amarillo",
       "relleno": "Pollo desmechado",
-      "precio": 20000
+      "precio": 20000,
+      "descripcion": "Nuestra Arepa de Pollo es una opción sustanciosa y llena de sabor. Rellena generosamente de jugoso pollo desmechado marinado en finas hierbas y sazonado al estilo tradicional. Todo servido en una dorada arepa de maíz amarillo asada a la perfección. ¡Una experiencia clásica e irresistible!"
     },
     {
       "id": 2,
@@ -14,7 +15,8 @@
       "foto": "img/productos/arepa-queso.png",
       "tipo_de_maiz": "Maíz blanco",
       "relleno": "Queso",
-      "precio": 12000
+      "precio": 12000,
+      "descripcion": "Nuestra Arepa de Queso es pura comodidad y tradición. Rellena con abundante queso derretido de textura suave y cremosa que se estira con cada mordisco. Servida en una crujiente arepa de maíz blanco tatemada al carbón. ¡El deleite perfecto para los amantes del buen queso!"
     },
     {
       "id": 3,
@@ -22,7 +24,8 @@
       "foto": "img/productos/arepa-carne.png",
       "tipo_de_maiz": "Maíz amarillo",
       "relleno": "Carne desmechada",
-      "precio": 22000
+      "precio": 22000,
+      "descripcion": "Nuestra Arepa de Carne ofrece un sabor intenso y reconfortante. Rellena generosamente de suave carne desmechada, lentamente cocinada en un guiso tradicional de tomates frescos y especias. Todo servido en una arepa de maíz amarillo tostada por fuera y suave por dentro. ¡Una verdadera delicia artesanal!"
     },
     {
       "id": 4,
@@ -30,7 +33,8 @@
       "foto": "img/productos/arepa-chicharron.png",
       "tipo_de_maiz": "Maíz blanco",
       "relleno": "Chicharrón",
-      "precio": 18000
+      "precio": 18000,
+      "descripcion": "Nuestra Arepa de Chicharrón destaca por su textura crujiente y sabor memorable. Rellena con trozos dorados y crujientes de chicharrón seleccionado, llenos de todo el sabor tradicional. Servida en una ligera arepa de maíz blanco recién asada. ¡Ideal para consentir tus antojos!"
     },
     {
       "id": 5,
@@ -38,7 +42,8 @@
       "foto": "img/productos/arepa-jamon-queso.png",
       "tipo_de_maiz": "Maíz amarillo",
       "relleno": "Jamón y queso",
-      "precio": 16000
+      "precio": 16000,
+      "descripcion": "Nuestra Arepa de Jamón y Queso es el equilibrio perfecto entre simplicidad y sabor. Rellena con finas lonchas de jamón selecto y abundante queso derretido de textura suave. Todo abrazado por una tostada arepa de maíz amarillo. ¡La favorita de chicos y grandes para cualquier momento del día!"
     },
     {
       "id": 6,
@@ -46,7 +51,8 @@
       "foto": "img/productos/arepa-choclo.png",
       "tipo_de_maiz": "Maíz dulce",
       "relleno": "Queso",
-      "precio": 15000
+      "precio": 15000,
+      "descripcion": "Nuestra Arepa de Choclo combina lo mejor del dulzor natural y la cremosidad. Elaborada con una suave masa de maíz dulce asada a fuego lento y rellena de abundante queso fundido salado. ¡Un contraste agridulce y reconfortante que enamora desde el primer bocado!"
     },
     {
       "id": 7,
@@ -54,7 +60,8 @@
       "foto": "img/productos/arepa-pollo-queso.png",
       "tipo_de_maiz": "Maíz blanco",
       "relleno": "Pollo y queso",
-      "precio": 21000
+      "precio": 21000,
+      "descripcion": "Nuestra Arepa de Pollo y Queso es el dúo definitivo para los amantes del confort. Rellena de pechuga de pollo desmechada jugosa combinada con capas de queso derretido en su punto. Todo servido en una delicada arepa de maíz blanco recién tostada. ¡Suavidad y sabor en cada mordisco!"
     },
     {
       "id": 8,
@@ -62,7 +69,8 @@
       "foto": "img/productos/arepa-carne-queso.png",
       "tipo_de_maiz": "Maíz amarillo",
       "relleno": "Carne y queso",
-      "precio": 23000
+      "precio": 23000,
+      "descripcion": "Nuestra Arepa de Carne y Queso combina la potencia de la carne desmechada con el toque fundente del queso. Rellena de abundante carne sazonada lentamente y queso fundido que envuelve cada ingrediente. Servida en una sabrosa arepa de maíz amarillo artesanal. ¡Una combinación sustanciosa e imbatible!"
     },
     {
       "id": 9,
@@ -70,7 +78,8 @@
       "foto": "img/productos/arepa-bocadillo.png",
       "tipo_de_maiz": "Maíz dulce",
       "relleno": "Queso y bocadillo",
-      "precio": 14000
+      "precio": 14000,
+      "descripcion": "Nuestra Arepa de Queso y Bocadillo es un homenaje a la dulzura tradicional. Elaborada con masa de maíz dulce y rellena de cremoso queso salado combinado con el toque único del bocadillo de guayaba derretido. ¡Una explosión agridulce inolvidable!"
     },
     {
       "id": 10,
@@ -78,7 +87,8 @@
       "foto": "img/productos/arepa-huevo.png",
       "tipo_de_maiz": "Maíz blanco",
       "relleno": "Huevo y queso",
-      "precio": 13000
+      "precio": 13000,
+      "descripcion": "Nuestra Arepa de Huevo y Queso es la opción ideal para un desayuno o antojo lleno de energía. Rellena de huevo preparado al punto perfecto y acompañado de queso derretido suave. Servida en una tradicional arepa de maíz blanco dorada por fuera. ¡Sabor casero y nutritivo!"
     },
     {
       "id": 11,
@@ -86,7 +96,8 @@
       "foto": "img/productos/arepa-especial-pollo.png",
       "tipo_de_maiz": "Maíz amarillo",
       "relleno": "Pollo, queso y maíz",
-      "precio": 24000
+      "precio": 24000,
+      "descripcion": "Nuestra Arepa Especial de Pollo es una fiesta de texturas e ingredientes premium. Rellena de jugoso pollo desmechado, queso fundido cremoso y dulces granos de maíz tierno. Todo servido dentro de una crujiente arepa de maíz amarillo. ¡Una combinación gourmet súper completa!"
     },
     {
       "id": 12,
@@ -94,7 +105,8 @@
       "foto": "img/productos/arepa-especial-carne.png",
       "tipo_de_maiz": "Maíz blanco",
       "relleno": "Carne, queso y aguacate",
-      "precio": 26000
+      "precio": 26000,
+      "descripcion": "Nuestra Arepa Especial de Carne es la máxima expresión de sabor y frescura. Rellena de tierna carne desmechada, queso fundido y sabrosas rebanadas de aguacate fresco. Servida en una suave arepa de maíz blanco asada a la parrilla. ¡Un deleite gastronómico inolvidable!"
     },
     {
       "id": 13,
@@ -102,7 +114,8 @@
       "foto": "img/productos/arepa-tocineta.png",
       "tipo_de_maiz": "Maíz dulce",
       "relleno": "Queso y tocineta",
-      "precio": 19000
+      "precio": 19000,
+      "descripcion": "Nuestra Arepa de Tocineta y Queso destaca por su irresistible toque ahumado. Rellena de crujientes trozos de tocineta ahumada y queso derretido de sabor intenso, sobre una base de suave masa de maíz dulce. ¡El balance perfecto entre crujiente, salado y dulce!"
     },
     {
       "id": 14,
@@ -110,7 +123,8 @@
       "foto": "img/productos/arepa-chorizo.png",
       "tipo_de_maiz": "Maíz amarillo",
       "relleno": "Chorizo y queso",
-      "precio": 21000
+      "precio": 21000,
+      "descripcion": "Nuestra Arepa de Chorizo y Queso ofrece todo el carácter de la cocina tradicional. Rellena de jugoso chorizo artesanal picado en su punto y queso cremoso derretido. Servida en una dorada arepa de maíz amarillo recién hecha. ¡Intensa, sabrosa y muy satisfactoria!"
     },
     {
       "id": 15,
@@ -118,7 +132,8 @@
       "foto": "img/productos/arepa-aguacate.png",
       "tipo_de_maiz": "Maíz blanco",
       "relleno": "Pollo, aguacate y queso",
-      "precio": 25000
+      "precio": 25000,
+      "descripcion": "Nuestra Arepa de Pollo y Aguacate es fresca, cremosa y extraordinariamente sabrosa. Rellena con pechuga de pollo desmechada, suave queso fundido y rodajas de aguacate maduro de textura perfecta. Todo en una arepa de maíz blanco suave y tostada. ¡Frescura y sabor supremo en cada bocado!"
     }
   ],
 

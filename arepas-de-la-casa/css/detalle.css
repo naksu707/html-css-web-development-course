@@ -1,0 +1,196 @@
+.contenedor-detalle {
+    max-width: 1000px;
+    margin: 30px 0 40px 40px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.tarjeta-detalle {
+    display: flex;
+    gap: 30px;
+    background: transparent;
+    align-items: flex-start;
+}
+
+/* Columna Foto Principal */
+.galeria-contenedor {
+    flex: 0 0 450px;
+}
+
+.imagen-principal-box img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    object-fit: cover;
+}
+
+/* Columna Información */
+.info-contenedor {
+    flex: 1;
+    color: #2b1d0c;
+}
+
+.info-contenedor h1 {
+    font-size: 1.8rem;
+    margin: 0 0 4px 0;
+    font-weight: 700;
+}
+
+.estrellas {
+    color: #d89e28;
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.precio-detalle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin: 4px 0 10px 0;
+}
+
+.descripcion-detalle {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Acciones de Compra */
+.acciones-compra {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.selector-cantidad {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fff;
+    overflow: hidden;
+}
+
+.selector-cantidad button {
+    border: none;
+    background: transparent;
+    padding: 6px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.selector-cantidad input {
+    width: 30px;
+    border: none;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.btn-agregar {
+    flex: 1;
+    background-color: #f4b51c;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-agregar:hover {
+    background-color: #c69218;
+}
+
+/* Contenedor a Ancho Completo */
+.galeria-miniaturas-full {
+    width: 100%;
+    padding: 0 40px;
+    box-sizing: border-box;
+    margin-bottom: 40px;
+}
+
+/* Galería sin barra de scroll visual */
+.galeria-miniaturas {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 14px;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+}
+
+.galeria-miniaturas::-webkit-scrollbar {
+    display: none; 
+}
+
+.miniatura-item {
+    flex: 0 0 120px; 
+    text-decoration: none;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.miniatura-item:hover {
+    transform: translateY(-4px);
+}
+
+.miniatura-item img {
+    width: 100%;
+    height: 80px; 
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+    cursor: pointer;
+}
+
+.miniatura-item span {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #333;
+    display: block;
+    margin-top: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ==========================================
+   DISEÑO RESPONSIVO
+========================================== */
+@media (max-width: 768px) {
+    .contenedor-detalle {
+        margin: 20px auto;
+        padding: 0 16px;
+    }
+
+    /* Apila la imagen y la información verticalmente */
+    .tarjeta-detalle {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Hace que la imagen ocupe todo el ancho disponible */
+    .galeria-contenedor {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    .info-contenedor {
+        width: 100%;
+    }
+
+    /* Ajusta el relleno lateral de la galería inferior de miniaturas */
+    .galeria-miniaturas-full {
+        padding: 0 16px;
+        margin-bottom: 30px;
+    }
+}

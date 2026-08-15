@@ -76,9 +76,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
             cardProducto.innerHTML = `
                 <div class="item-info">
-                    <img src="${producto.foto || producto.imagen || 'img/iconos/arepa.png'}" alt="${producto.nombre}" class="item-img">
+                    <a href="detalle.html?id=${producto.id}">
+                        <img src="${producto.foto || producto.imagen || 'img/iconos/arepa.png'}" alt="${producto.nombre}" class="item-img" style="cursor: pointer;">
+                    </a>
                     <div class="item-detalles">
-                        <h4>${producto.nombre}</h4>
+                        <a href="detalle.html?id=${producto.id}" style="text-decoration: none; color: inherit;">
+                            <h4>${producto.nombre}</h4>
+                        </a>
                         <span class="item-precio">$${producto.precio.toLocaleString()}</span>
                     </div>
                 </div>
@@ -140,4 +144,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
     renderizarCarrito();
 });
-
