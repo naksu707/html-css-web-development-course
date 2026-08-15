@@ -26,6 +26,18 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = "login.html";
         });
     }
+
+    // Menú Hamburguesa (modo responsive)
+    const btnHamburguesa = document.getElementById("btn-hamburguesa");
+    const accionesMenu = document.getElementById("acciones-menu");
+
+    if (btnHamburguesa && accionesMenu) {
+        btnHamburguesa.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            accionesMenu.classList.toggle("activo");
+        });
+    }
 });
 
 // Carga inicial de datos

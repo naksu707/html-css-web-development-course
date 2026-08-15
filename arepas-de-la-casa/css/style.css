@@ -182,7 +182,7 @@ input {
             rgba(0, 0, 0, 0.35),
             rgba(0, 0, 0, 0.35)
         ),
-         url("/arepas-de-la-casa/img/hero.png");
+         url("../img/hero.png");
     background-size: cover;
     background-position: center;
 }
