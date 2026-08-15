@@ -34,6 +34,24 @@ The main goal is to solidify frontend core concepts—such as semantic layout, R
 
 ---
 
+
+## 🚀 How to Run the Projects
+
+To ensure all features work properly (especially dynamic JSON loading, dynamic routing, and interactive assets), it is recommended to run the projects using a local web server:
+
+1. Open the project folder in **Visual Studio Code**.
+2. Start the local server using one of the following methods:
+   - Click the **Go Live** button in the bottom status bar:
+     <p align="center">
+       <img src="/img/go-live.png" width="300" alt="Go Live Option">
+     </p>
+   - Or right-click the `index.html` file and select **Open with Live Server**:
+     <p align="center">
+       <img src="/img/go-live-2.png" width="400" alt="Open with Live Server Option">
+     </p>
+
+---
+
 ## Included Projects
 
 ### 1. First Web Page 
