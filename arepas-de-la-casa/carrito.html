@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arepas de la Casa</title>
+    <title>Arepas de la Casa - Carrito</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/baner2.css">
+    <link rel="stylesheet" href="css/carrito.css">
     <link rel="icon" type="image/webp" href="img/iconos/arepa.png">
 </head>
 <body>
@@ -18,43 +20,36 @@
                 </button>
                 <ul id="lista-sugerencias" class="lista-sugerencias"></ul>
             </div>
-            <button type="button" class="btn-hamburguesa" id="btn-hamburguesa">
-                <img src="img/iconos/lista.png" alt="hamburguesa" class="icono">
-            </button>
-            <div class="acciones" id="acciones-menu">
+            <div class="acciones">
+                <button type="button" class="btn-hamburguesa" id="btn-hamburguesa">
+                    <img src="img/iconos/lista.png" alt="hamburguesa" class="icono">
+                </button>
+                <a href="menu.html" class="menu">Menú</a>
                 <button type="button" class="btn-carrito" id="btn-carrito">
                     <img src="img/iconos/carrito-de-compras.png" alt="Carrito" class="icono">
-                    <span id="carri-text">Carrito</span>
                     <span id="contador-carrito">0</span>
                 </button>
                 <button type="button" class="btn-login" id="btn-login">Iniciar sesión</button>
             </div>
         </div>
     </header>
+    <section class="hero-2"></section>
     <main>
-        <section class="hero">
-            <div class="hero-contenido">
-                <h1>Arepas de la Casa</h1>
-                <p>La tradición de arepas caseras, directo a tu mesa.</p>
-                <a href="menu.html" class="btn-productos">Ver Menú</a>
+        <section class="contenedor-principal">
+            <h2>Tu Carrito de Compras</h2>
+            <div class="layout-carrito">
+                <section id="lista-carrito" class="lista-carrito"></section>
+                <aside class="resumen-pedido">
+                    <h3>Resumen de la compra</h3>
+                    <div class="total-linea">
+                        <span>Total:</span>
+                        <strong id="precio-total">$0</strong>
+                    </div>
+                    <button id="btn-finalizar" class="btn-finalizar">Ir a pagar</button>
+                </aside>
+
             </div>
         </section>
-        <section id="productos" class="productos">
-            <h2>Nuestras mejores arepas</h2>
-            <div id="contenedor-productos" class="contenedor-productos"></div>
-            <div class="controles-carrusel">
-                <button type="button" id="anterior" class="flecha">‹</button>
-                <div id="indicadores" class="indicadores"></div>
-                <button type="button" id="siguiente" class="flecha">›</button>
-            </div>
-        </section>
-        <div id="modal-comentarios" class="modal">
-            <div class="modal-contenido">
-                <span class="cerrar-modal" id="btn-cerrar-modal">&times;</span>
-                <h3 id="modal-titulo-producto">Comentarios</h3>
-                <div id="modal-lista-comentarios" class="contenedor-opiniones-modal"></div>
-            </div>
-        </div>
     </main>
     <footer class="footer">
         <p>© 2026 Arepas de la Casa. Todos los derechos reservados.</p>
@@ -64,6 +59,9 @@
             <a href="#" aria-label="Instagram">◎</a>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="javascript/carrito.js"></script>
     <script src="javascript/script.js"></script>
+
 </body>
 </html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arepas de la Casa</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ir-a-pagar.css">
+    <link rel="stylesheet" href="css/baner2.css">
+    <link rel="icon" type="image/webp" href="img/iconos/arepa.png">
+</head>
+<body>
+    <header class="header">
+        <div class="contenedor-header">
+            <a href="index.html" class="logo">Arepas <br class="salto-movil">de la Casa</a>
+            <div class="buscador">
+                <input type="text" id="buscador" placeholder="Buscar producto">
+                <button type="button" id="btn-buscar">
+                    <img src="img/iconos/lupa.png" alt="Buscar" class="icono">
+                </button>
+                <ul id="lista-sugerencias" class="lista-sugerencias"></ul>
+            </div>
+            <div class="acciones">
+                <button type="button" class="btn-hamburguesa" id="btn-hamburguesa">
+                    <img src="img/iconos/lista.png" alt="hamburguesa" class="icono">
+                </button>
+                <a href="menu.html" class="menu">Menú</a>
+                <button type="button" class="btn-carrito" id="btn-carrito">
+                    <img src="img/iconos/carrito-de-compras.png" alt="Carrito" class="icono">
+                    <span id="contador-carrito">0</span>
+                </button>
+                <button type="button" class="btn-login" id="btn-login">Iniciar sesión</button>
+            </div>
+        </div>
+    </header>
+    <section class="hero-2"></section>
+    <main>
+        <section class="checkout-container">
+            <h2>Finalizar Pedido</h2>
+        <div id="banner-login" class="banner-login">
+            <p>¿Ya tienes una cuenta? <a href="login.html">Inicia sesión aquí</a> para completar tus datos más rápido.</p>
+        </div>
+        <form id="form-checkout" class="checkout-form">
+            <section class="seccion-checkout">
+                <h3>1. Tipo de entrega</h3>
+                <div class="opciones-entrega">
+                    <label class="radio-card">
+                        <input type="radio" name="tipoEntrega" value="llevar" checked>
+                        <span>Domicilio (Para llevar)</span>
+                    </label>
+                    <label class="radio-card">
+                        <input type="radio" name="tipoEntrega" value="recoger">
+                        <span>Recoger en tienda</span>
+                    </label>
+                </div>
+            </section>
+
+            <section class="seccion-checkout">
+                <h3>2. Datos del Cliente</h3>
+                
+                <div class="grupo-input">
+                    <label for="nombre">Nombre completo *</label>
+                    <input type="text" id="nombre" required placeholder="Tu nombre">
+                </div>
+
+                <div class="grupo-input">
+                    <label for="email">Correo electrónico *</label>
+                    <input type="email" id="email" required placeholder="ejemplo@correo.com">
+                </div>
+
+                <div class="grupo-input">
+                    <label for="telefono">Teléfono *</label>
+                    <input type="tel" id="telefono" required placeholder="300 000 0000">
+                </div>
+
+                <div class="grupo-input" id="campo-direccion">
+                    <label for="direccion">Dirección de entrega *</label>
+                    <input type="text" id="direccion" required placeholder="Calle, Carrera, No. Casa/Apto">
+                </div>
+            </section>
+            <section class="seccion-checkout">
+                <h3>3. Método de Pago</h3>
+                <div class="opciones-pago">
+                    <label>
+                        <input type="radio" name="metodoPago" value="efectivo" checked> Efectivo al entregar
+                    </label>
+                    <label>
+                        <input type="radio" name="metodoPago" value="nequi"> Nequi / Daviplata
+                    </label>
+                    <label>
+                        <input type="radio" name="metodoPago" value="tarjeta"> Tarjeta Débito / Crédito
+                    </label>
+                </div>
+                <div id="detalles-nequi" class="detalles-pago" style="display: none;">
+                    <p class="instrucciones-pago"> Transferir al número <strong>300 123 4567</strong></p>
+                    <div class="grupo-input">
+                        <label for="numero-nequi">Número de celular con el que transfieres *</label>
+                        <input type="tel" id="numero-nequi" placeholder="Ej: 300 000 0000">
+                    </div>
+                    <div class="grupo-input">
+                        <label for="comprobante-nequi">Número de comprobante / Nro. de aprobación *</label>
+                        <input type="text" id="comprobante-nequi" placeholder="Ej: 1234567">
+                    </div>
+                </div>
+                <div id="detalles-tarjeta" class="detalles-pago" style="display: none;">
+                    <div class="grupo-input">
+                        <label for="numero-tarjeta">Número de tarjeta *</label>
+                        <input type="text" id="numero-tarjeta" placeholder="0000 0000 0000 0000" maxlength="19">
+                    </div>
+                    <div class="fila-doble">
+                        <div class="grupo-input">
+                            <label for="expiracion-tarjeta">Fecha expiración *</label>
+                            <input type="text" id="expiracion-tarjeta" placeholder="MM/AA" maxlength="5">
+                        </div>
+                        <div class="grupo-input">
+                            <label for="cvv-tarjeta">CVV / CVC *</label>
+                            <input type="password" id="cvv-tarjeta" placeholder="123" maxlength="4">
+                        </div>
+                    </div>
+                    <div class="grupo-input">
+                        <label for="nombre-tarjeta">Nombre impreso en la tarjeta *</label>
+                        <input type="text" id="nombre-tarjeta" placeholder="Como figura en la tarjeta">
+                    </div>
+                </div>
+            </section>
+            <div class="resumen-final">
+                <div class="desglose-pedido">
+                    <div class="linea-desglose">
+                        <span>Arepas:</span>
+                        <span id="subtotal-arepas">$0</span>
+                    </div>
+                    
+                    <div class="linea-desglose" id="fila-domicilio">
+                        <span>Domicilio:</span>
+                        <span id="costo-domicilio">$8.500</span>
+                    </div>
+                    
+                    <hr class="divisor-resumen">
+                    
+                    <div class="linea-desglose total-destacado">
+                        <span>Total a pagar:</span>
+                        <strong id="total-pagar">$0</strong>
+                    </div>
+                </div>
+                <button type="submit" class="btn-confirmar">Confirmar Pedido</button>
+            </div>
+
+        </form>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>© 2026 Arepas de la Casa. Todos los derechos reservados.</p>
+        <div class="redes">
+            <a href="#" aria-label="X">𝕏</a>
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">◎</a>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="javascript/ir-a-pagar.js"></script>
+    <script src="javascript/script.js"></script>
+</body>
+</html>

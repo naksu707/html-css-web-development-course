@@ -1,0 +1,150 @@
+.checkout-container {
+    max-width: 650px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.banner-login {
+    background-color: #fff8e1;
+    border-left: 4px solid #f1c40f;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.banner-login a {
+    color: #d35400;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.seccion-checkout {
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.grupo-input {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.grupo-input label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.grupo-input input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.opciones-entrega, .opciones-pago {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.radio-card {
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #f9f9f9;
+}
+
+.resumen-final {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.btn-confirmar {
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-confirmar:hover {
+    background-color: #e67e22;
+}
+
+.detalles-pago {
+    background-color: #f8f9fa;
+    border: 1px dashed #dcdde1;
+    padding: 18px;
+    border-radius: 8px;
+    margin-top: 15px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.instrucciones-pago {
+    margin-bottom: 15px;
+    color: #27ae60;
+    font-size: 0.95rem;
+}
+
+.fila-doble {
+    display: flex;
+    gap: 15px;
+}
+
+.fila-doble .grupo-input {
+    flex: 1;
+}
+
+.resumen-final {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 2px solid #f1f2f6;
+}
+
+.desglose-pedido {
+    width: 240px;
+    font-size: 0.95rem;
+    color: #4b6584;
+}
+
+.linea-desglose {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.divisor-resumen {
+    border: 0;
+    border-top: 1px dashed #dcdde1;
+    margin: 8px 0;
+}
+
+.total-destacado {
+    font-size: 1.15rem;
+    color: #2c3e50;
+}
+
+.total-destacado strong {
+    color: #d35400;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #f8f6f0;
+}
+
+.menu {
+    color: white;
+    text-decoration: none;
+}
+
+
+/* BANNER HERO-2 */
+.hero-2 {
+    width: 100%;
+    height: 210px; 
+    background-image: url("/arepas-de-la-casa/img/hero2.png");
+    background-size: cover;
+    background-position: center;
+    margin-top: 0; 
+}

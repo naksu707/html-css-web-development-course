@@ -305,8 +305,8 @@
     },
     {
       "id_producto": 15,
-      "calificacion": 4,
-      "comentario": "El aguacate le da un toque excelente.",
+      "calificacion": 3,
+      "comentario": "El aguacate le da un toque exotico.",
       "id_usuario": 6
     }
   ]
