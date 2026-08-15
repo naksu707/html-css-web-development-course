@@ -295,24 +295,3 @@
     }
 }
 
-@media (max-width: 1024px) {
-    .grid-productos {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-
-    .hero-2 {
-        height: 140px;
-    }
-    .contenedor-catalogo {
-        flex-direction: column;
-    }
-    .panel-filtros {
-        width: 100%;
-    }
-    .grid-productos {
-        grid-template-columns: repeat(1, 1fr);
-    }
-}

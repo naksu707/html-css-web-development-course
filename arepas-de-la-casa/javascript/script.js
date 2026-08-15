@@ -4,9 +4,12 @@ let usuarios = [];
 let calificaciones = [];
 let intervaloCarrusel = null;
 
-fetch("data/data.json")
+fetch("./data/data.json")
     .then(response => {
-        if (!response.ok) throw new Error("No se pudo cargar el JSON");
+        if (!response.ok) {
+            throw new Error("No se pudo cargar el JSON");
+        }
+
         return response.json();
     })
     .then(data => {
@@ -18,7 +21,9 @@ fetch("data/data.json")
         mostrarProductos();
         iniciarCarruselAuto();
     })
-    .catch(error => console.error("Error al cargar datos:", error));
+    .catch(error => {
+        console.error("Error al cargar datos:", error);
+    });
 
 function mostrarProductos() {
     const contenedor = document.getElementById("contenedor-productos");

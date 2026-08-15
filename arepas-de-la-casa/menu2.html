@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arepas de la Casa</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/baner2.css">
+    <link rel="icon" type="image/webp" href="img/iconos/arepa.png">
+</head>
+<body>
+    <header class="header">
+        <div class="contenedor-header">
+            <a href="index.html" class="logo">Arepas <br class="salto-movil">de la Casa</a>
+            <div class="buscador">
+                <input type="text" id="buscador" placeholder="Buscar producto">
+                <button type="button" id="btn-buscar">
+                    <img src="img/iconos/lupa.png" alt="Buscar" class="icono">
+                </button>
+                <ul id="lista-sugerencias" class="lista-sugerencias"></ul>
+            </div>
+            <button type="button" class="btn-hamburguesa" id="btn-hamburguesa">
+                <img src="img/iconos/lista.png" alt="hamburguesa" class="icono">
+            </button>
+            <div class="acciones" id="acciones-menu">
+                <button type="button" class="btn-carrito" id="btn-carrito">
+                    <img src="img/iconos/carrito-de-compras.png" alt="Carrito" class="icono">
+                    <span id="carri-text">Carrito</span>
+                    <span id="contador-carrito">0</span>
+                </button>
+                <button type="button" class="btn-login" id="btn-login">Iniciar sesión</button>
+            </div>
+        </div>
+    </header>
+    <section class="hero-2"></section>
+
+    <footer class="footer">
+        <p>© 2026 Arepas de la Casa. Todos los derechos reservados.</p>
+        <div class="redes">
+            <a href="#" aria-label="X">𝕏</a>
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">◎</a>
+        </div>
+    </footer>
+    <script src="javascript/menu.js"></script>
+    <script src="javascript/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
