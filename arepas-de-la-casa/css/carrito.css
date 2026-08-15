@@ -187,3 +187,38 @@
     box-shadow: none;
 }
 
+/* ==========================================
+    DISEÑO RESPONSIVO (VERTICAL)
+========================================== */
+@media (max-width: 768px) {
+    .layout-carrito {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .lista-carrito,
+    .resumen-pedido {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .item-carrito {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .item-info {
+        width: 100%;
+    }
+
+    .item-img {
+        width: 90px;
+        height: 70px;
+    }
+
+    .item-acciones {
+        width: 100%;
+        justify-content: space-between;
+    }
+}

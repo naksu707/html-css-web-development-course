@@ -268,7 +268,6 @@ document.addEventListener("DOMContentLoaded", () => {
         btnHamburguesa.addEventListener("click", (e) => {
             e.preventDefault();
             e.stopPropagation();
-            console.log("Hamburguesa clickeada"); // <-- Revisa esto en la consola F12
             accionesMenu.classList.toggle("activo");
         });
     }

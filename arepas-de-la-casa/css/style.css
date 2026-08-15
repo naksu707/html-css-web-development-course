@@ -653,9 +653,21 @@ input {
         padding: 30px 16px;
     }
 
+    .contenedor-productos {
+        display: flex;
+        gap: 0px; 
+        overflow-x: auto;
+        scroll-snap-type: x mandatory; 
+        scroll-behavior: smooth;
+        padding: 10px 0;
+        width: 100%;
+    }
+
     .tarjeta-producto {
-        flex: 0 0 100%; 
+        flex: 0 0 100%;
+        max-width: 100%;
         scroll-snap-align: center;
+        box-sizing: border-box;
     }
 
     .informacion-producto {

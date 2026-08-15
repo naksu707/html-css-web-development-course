@@ -38,6 +38,20 @@ document.addEventListener("DOMContentLoaded", () => {
             accionesMenu.classList.toggle("activo");
         });
     }
+
+    // Event Listeners para el buscador y contador
+    const inputBuscador = document.getElementById("buscador");
+    const btnBuscar = document.getElementById("btn-buscar");
+
+    if (inputBuscador) {
+        inputBuscador.addEventListener("input", aplicarFiltros);
+    }
+
+    if (btnBuscar) {
+        btnBuscar.addEventListener("click", aplicarFiltros);
+    }
+
+    actualizarContadorCarrito();
 });
 
 // Carga inicial de datos
@@ -64,22 +78,45 @@ function obtenerSeleccionados(nombreGrupo) {
     return Array.from(checkboxes).map(cb => cb.value.toLowerCase());
 }
 
+function sincronizarCheckboxesConTexto(texto) {
+    const textoNorm = normalizarTexto(texto);
+
+    const opcionesRelleno = ["queso", "pollo", "carne", "chicharron", "chorizo", "especial", "mixto"];
+    const opcionesMaiz = ["blanco", "amarillo", "choclo", "dulce"];
+
+    opcionesRelleno.forEach(opcion => {
+        const checkbox = document.querySelector(`input[name="relleno"][value*="${opcion}" i]`);
+        if (checkbox) {
+            checkbox.checked = textoNorm.includes(opcion);
+        }
+    });
+
+    opcionesMaiz.forEach(opcion => {
+        const checkbox = document.querySelector(`input[name="maiz"][value*="${opcion}" i]`);
+        if (checkbox) {
+            checkbox.checked = textoNorm.includes(opcion);
+        }
+    });
+}
+
 function aplicarFiltros() {
     const inputBuscador = document.getElementById("buscador");
-    const textoBusqueda = inputBuscador ? normalizarTexto(inputBuscador.value.trim()) : "";
+    const textoBusqueda = inputBuscador ? inputBuscador.value.trim() : "";
+
+    sincronizarCheckboxesConTexto(textoBusqueda);
 
     const tiposMaiz = obtenerSeleccionados("maiz"); 
     const tiposRelleno = obtenerSeleccionados("relleno"); 
 
     const productosFiltrados = productos.filter(producto => {
-        
         const nombreProd = normalizarTexto(producto.nombre);
         const descProd = normalizarTexto(producto.descripcion);
-        const coincideTexto = textoBusqueda === "" || 
-                              nombreProd.includes(textoBusqueda) || 
-                              descProd.includes(textoBusqueda);
+        const textoNorm = normalizarTexto(textoBusqueda);
 
-     
+        const coincideTexto = textoNorm === "" || 
+                              nombreProd.includes(textoNorm) || 
+                              descProd.includes(textoNorm);
+
         const maizProducto = normalizarTexto(producto.tipo_de_maiz);
         const coincideMaiz = tiposMaiz.length === 0 || tiposMaiz.some(filtro => {
             const val = normalizarTexto(filtro);
@@ -139,9 +176,13 @@ function mostrarGridProductos(lista = productos) {
 
     grid.innerHTML = productosVisibles.map(p => `
         <div class="tarjeta-catalogo">
-            <img src="${p.foto}" alt="${p.nombre}">
+            <a href="detalle.html?id=${p.id}">
+                <img src="${p.foto}" alt="${p.nombre}" style="cursor: pointer;">
+            </a>
             <div class="contenido-tarjeta-catalogo">
-                <h4 class="titulo-catalogo">${p.nombre}</h4>
+                <a href="detalle.html?id=${p.id}" style="text-decoration: none; color: inherit;">
+                    <h4 class="titulo-catalogo">${p.nombre}</h4>
+                </a>
                 <div class="estrellas-catalogo">★★★★★</div>
                 <div class="pie-tarjeta-catalogo">
                     <span class="precio-catalogo">$${p.precio ? p.precio.toLocaleString() : '0'}</span>
@@ -166,7 +207,7 @@ function renderizarControlesPaginacion(totalItems) {
     }
 
     let botonesHTML = `
-        <button class="btn-pagina" ${paginaActual === 1 ? 'disabled' : ''} onclick="cambiarPagina(${paginaActual - 1})">&laquo;</button>
+        <button class="btn-pagina" ${paginaActual === 1 ? 'disabled' : ''} onclick="cambiarPagina(${paginaActual - 1})">&lt;</button>
     `;
 
     for (let i = 1; i <= totalPaginas; i++) {
@@ -176,7 +217,7 @@ function renderizarControlesPaginacion(totalItems) {
     }
 
     botonesHTML += `
-        <button class="btn-pagina" ${paginaActual === totalPaginas ? 'disabled' : ''} onclick="cambiarPagina(${paginaActual + 1})">&raquo;</button>
+        <button class="btn-pagina" ${paginaActual === totalPaginas ? 'disabled' : ''} onclick="cambiarPagina(${paginaActual + 1})">&gt;</button>
     `;
 
     contenedor.innerHTML = botonesHTML;
@@ -187,20 +228,6 @@ function cambiarPagina(nuevaPagina) {
     mostrarGridProductos(productosActuales);
     window.scrollTo({ top: 200, behavior: 'smooth' });
 }
-
-// Event Listeners para el buscador
-document.addEventListener("DOMContentLoaded", () => {
-    const inputBuscador = document.getElementById("buscador");
-    const btnBuscar = document.getElementById("btn-buscar");
-
-    if (inputBuscador) {
-        inputBuscador.addEventListener("input", aplicarFiltros);
-    }
-
-    if (btnBuscar) {
-        btnBuscar.addEventListener("click", aplicarFiltros);
-    }
-});
 
 window.addEventListener("scroll", () => {
     const indicador = document.getElementById("indicadorScroll");
@@ -214,46 +241,6 @@ window.addEventListener("scroll", () => {
         indicador.style.pointerEvents = "auto";
     }
 });
-
-function mostrarGridProductos(lista = productos) {
-    productosActuales = lista;
-    const grid = document.getElementById("grid-productos");
-    if (!grid) return;
-
-    const inicio = (paginaActual - 1) * productosPorPagina;
-    const fin = inicio + productosPorPagina;
-    const productosVisibles = productosActuales.slice(inicio, fin);
-
-    if (productosVisibles.length === 0) {
-        grid.innerHTML = `<p class="sin-resultados" style="grid-column: 1/-1; text-align: center;">No se encontraron productos.</p>`;
-        renderizarControlesPaginacion(0);
-        return;
-    }
-
-    grid.innerHTML = productosVisibles.map(p => `
-        <div class="tarjeta-catalogo">
-            <!-- Enlace en la imagen -->
-            <a href="detalle.html?id=${p.id}">
-                <img src="${p.foto}" alt="${p.nombre}" style="cursor: pointer;">
-            </a>
-            
-            <div class="contenido-tarjeta-catalogo">
-                <!-- Enlace en el título (opcional pero recomendado) -->
-                <a href="detalle.html?id=${p.id}" style="text-decoration: none; color: inherit;">
-                    <h4 class="titulo-catalogo">${p.nombre}</h4>
-                </a>
-                
-                <div class="estrellas-catalogo">★★★★★</div>
-                <div class="pie-tarjeta-catalogo">
-                    <span class="precio-catalogo">$${p.precio ? p.precio.toLocaleString() : '0'}</span>
-                    <button type="button" class="btn-anadir" onclick="agregarAlCarrito(${p.id})">Añadir</button>
-                </div>
-            </div>
-        </div>
-    `).join('');
-
-    renderizarControlesPaginacion(productosActuales.length);
-}
 
 // --- FUNCIONES DEL CARRITO ---
 function obtenerCarrito() {
@@ -275,7 +262,6 @@ function agregarAlCarrito(idProducto) {
     }
 
     let carrito = obtenerCarrito();
-
     const indice = carrito.findIndex(item => item.id === idProducto);
 
     if (indice !== -1) {
@@ -312,13 +298,6 @@ function actualizarContadorCarrito() {
     if (!contadorElem) return;
 
     const carrito = obtenerCarrito();
-    
     const totalUnidades = carrito.reduce((acc, item) => acc + item.cantidad, 0);
-
     contadorElem.textContent = totalUnidades;
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-    actualizarContadorCarrito();
-});
-
