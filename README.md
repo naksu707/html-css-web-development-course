@@ -43,7 +43,7 @@ An initial web page created to practice fundamental HTML layout concepts, text h
 - **Focus:** Basic markup, text styling, colors, and the Box Model.
 
 <p align="center">
-    <img src="/first-web-page/img/preview.png" width="750" alt="First Web Page Preview">
+    <img src="/img/preview-kaisa.png" width="750" alt="First Web Page Preview">
 </p>
 
 ---
@@ -55,7 +55,7 @@ An informational web page dedicated to the K-pop group BTS. Features stylized vi
 - **Focus:** Semantic layout, refined visual styling, web typography, and component arrangement.
 
 <p align="center">
-    <img src="/bangtanpedia/img/preview.png" width="750" alt="Bangtanpedia Preview">
+    <img src="/img/preview-bts.png" width="750" alt="Bangtanpedia Preview">
 </p>
 
 ---
@@ -70,17 +70,16 @@ A complete interactive web application for a traditional stuffed arepas restaura
   - **Fully Responsive:** Layouts tailored for desktop, tablet, and mobile views.
 
 <p align="center">
-  <img src="/arepas-de-la-casa/img/preview-pc.png" width="750" alt="Arepas de la Casa - Desktop Preview">
+  <img src="/img/preview-arepa.png" width="750" alt="Arepas de la Casa - Desktop Preview">
 </p>
 <p align="center">
-  <img src="/arepas-de-la-casa/img/preview-responsive.png" width="750" alt="Arepas de la Casa - Responsive Preview">
+  <img src="/img/preview-responsive.png" width="750" alt="Arepas de la Casa - Responsive Preview">
 </p>
 
 ---
 
 ### 4. Volaris 
-IN WORKING
 
 <p align="center">
-    <img src="/volaris/img/preview.png" width="750" alt="Volaris Preview">
+    <img src="/img/preview.png" width="750" alt="Volaris Preview">
 </p>
