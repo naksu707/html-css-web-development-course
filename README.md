@@ -90,9 +90,6 @@ A complete interactive web application for a traditional stuffed arepas restaura
 <p align="center">
   <img src="/img/preview-arepa.png" width="750" alt="Arepas de la Casa - Desktop Preview">
 </p>
-<p align="center">
-  <img src="/img/preview-responsive.png" width="750" alt="Arepas de la Casa - Responsive Preview">
-</p>
 
 ---
 
