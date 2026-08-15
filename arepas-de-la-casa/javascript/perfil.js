@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const response = await fetch("data/data.json");
         const data = await response.json();
 
-        // Obtener usuario activo (ID 1 por defecto si no hay sesión iniciada)
+        // Obtener usuario activo
         const idUsuarioActivo = parseInt(localStorage.getItem("usuarioLogueado")) || 1;
         const usuario = data.usuarios.find(u => u.id === idUsuarioActivo);
 
@@ -24,6 +24,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         cargarPedidos(usuario.pedidos, data.productos);
         cargarCalificaciones(usuario.id, data.calificaciones, data.productos);
 
+        // Configurar el Modal de Nuevos Comentarios pasándole las referencias de datos
+        configurarModalComentario(usuario, data.calificaciones, data.productos);
+
         // Configurar buscador del header
         configurarBuscador(data.productos);
 
@@ -40,7 +43,7 @@ function cargarPedidos(listaIdsPedidos, productos) {
     tbody.innerHTML = "";
 
     if (!listaIdsPedidos || listaIdsPedidos.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;">No tienes pedidos registrados.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;">No tienes pedidos registrados.</td></tr>`;
         return;
     }
 
@@ -48,7 +51,6 @@ function cargarPedidos(listaIdsPedidos, productos) {
         const producto = productos.find(p => p.id === idProducto);
         if (!producto) return;
 
-        const numPedido = `Nº 10${100 + producto.id}`;
         const fechaSimulada = "15/08/2026";
         const precioFormateado = new Intl.NumberFormat("es-CO", {
             style: "currency",
@@ -58,7 +60,6 @@ function cargarPedidos(listaIdsPedidos, productos) {
 
         const tr = document.createElement("tr");
         tr.innerHTML = `
-            <td>${numPedido}</td>
             <td>${fechaSimulada}</td>
             <td><span style="color: #2e7d32; font-weight: 600;">Entregado</span></td>
             <td>${precioFormateado}</td>
@@ -129,6 +130,78 @@ function cargarCalificaciones(idUsuario, calificaciones, productos) {
             </div>
         `;
         contenedorComentarios.appendChild(article);
+    });
+}
+
+function configurarModalComentario(usuario, calificaciones, productos) {
+    const modalComentario = document.getElementById('modal-comentario');
+    const btnNuevoComentario = document.getElementById('btn-nuevo-comentario');
+    const btnCerrarComentario = document.getElementById('btn-cerrar-modal-comentario');
+    const btnCancelarComentario = document.getElementById('btn-cancelar-comentario');
+    const contenedorSeleccion = document.getElementById('contenedor-seleccion-pedido');
+    const camposComentario = document.getElementById('campos-comentario');
+    const formComentario = document.getElementById('form-comentario');
+
+    if (!modalComentario || !btnNuevoComentario) return;
+
+    btnNuevoComentario.addEventListener('click', () => {
+        // Obtener IDs de productos que el usuario ya comentó
+        const idsComentados = calificaciones
+            .filter(c => c.id_usuario === usuario.id)
+            .map(c => c.id_producto);
+
+        // Filtrar productos comprados por el usuario que no hayan sido comentados aún
+        const productosPendientes = usuario.pedidos.filter(idProd => !idsComentados.includes(idProd));
+
+        if (productosPendientes.length === 0) {
+            contenedorSeleccion.innerHTML = `
+                <p class="mensaje-sin-pendientes">No tienes comentarios pendientes para escribir.</p>
+            `;
+            camposComentario.style.display = 'none';
+        } else {
+            let opciones = productosPendientes.map(idProd => {
+                const prod = productos.find(p => p.id === idProd);
+                return `<option value="${prod.id}">${prod.nombre}</option>`;
+            }).join('');
+
+            contenedorSeleccion.innerHTML = `
+                <div class="grupo-input">
+                    <label for="select-pedido-comentario">Selecciona el producto a calificar:</label>
+                    <select id="select-pedido-comentario" style="width: 100%; padding: 8px; margin-top: 5px;">${opciones}</select>
+                </div>
+            `;
+            camposComentario.style.display = 'block';
+        }
+
+        modalComentario.classList.add('activo');
+    });
+
+    const cerrarModalComentario = () => modalComentario.classList.remove('activo');
+    btnCerrarComentario?.addEventListener('click', cerrarModalComentario);
+    btnCancelarComentario?.addEventListener('click', cerrarModalComentario);
+
+    formComentario?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const selectProducto = document.getElementById('select-pedido-comentario');
+        const selectEstrellas = document.getElementById('select-estrellas');
+        const inputTexto = document.getElementById('input-texto-comentario');
+
+        if (!selectProducto) return;
+
+        // Crear la nueva calificación en memoria
+        const nuevaCalificacion = {
+            id_usuario: usuario.id,
+            id_producto: parseInt(selectProducto.value),
+            calificacion: parseInt(selectEstrellas.value),
+            comentario: inputTexto.value
+        };
+
+        calificaciones.push(nuevaCalificacion);
+        cargarCalificaciones(usuario.id, calificaciones, productos);
+        
+        // Limpiar y cerrar
+        inputTexto.value = "";
+        cerrarModalComentario();
     });
 }
 

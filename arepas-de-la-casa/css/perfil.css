@@ -365,12 +365,65 @@
     font-size: 1.05rem;
 }
 
+
+.cabecera-bloque {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.btn-agregar-comentario {
+    background-color: #e09f3e;
+    color: white;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.btn-agregar-comentario:hover {
+    background-color: #d4a373;
+}
+
+.mensaje-sin-pendientes {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-size: 14px;
+}
+
 /* ==========================================
    DISEÑO RESPONSIVO
    ========================================== */
 @media (max-width: 850px) {
     .grid-perfil {
         grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .bloque-perfil {
+        width: 100%;
+        min-width: 0; 
+        box-sizing: border-box;
+    }
+
+    .tabla-contenedor {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tabla-pedidos {
+        width: 100%;
+        min-width: 450px; 
     }
 }
 

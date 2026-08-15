@@ -24,6 +24,7 @@
                 <img src="img/iconos/lista.png" alt="hamburguesa" class="icono">
             </button>
             <div class="acciones" id="acciones-menu">
+                <a href="menu.html" class="menu">Menú</a>
                 <button type="button" class="btn-carrito" id="btn-carrito">
                     <img src="img/iconos/carrito-de-compras.png" alt="Carrito" class="icono">
                     <span id="carri-text">Carrito</span>
@@ -58,7 +59,6 @@
                     <table class="tabla-pedidos">
                         <thead>
                             <tr>
-                                <th>Nº Pedido</th>
                                 <th>Fecha</th>
                                 <th>Estado</th>
                                 <th>Subtotal</th>
@@ -75,7 +75,10 @@
                 </div>
             </section>
             <section class="bloque-perfil">
-                <h2 class="titulo-bloque">CALIFICACIONES Y COMENTARIOS</h2>
+                <div class="cabecera-bloque">
+                    <h2 class="titulo-bloque">CALIFICACIONES Y COMENTARIOS</h2>
+                    <button type="button" id="btn-nuevo-comentario" class="btn-agregar-comentario" title="Agregar comentario">+</button>
+                </div>
                 <div class="lista-comentarios-perfil" id="lista-comentarios"></div>
             </section>
         </div>
@@ -124,7 +127,39 @@
                     <button type="button" id="btn-aceptar-detalles" class="btn-primario">Aceptar</button>
                 </div>
             </div>
-</div>
+        </div>
+        <div id="modal-comentario" class="modal-overlay">
+            <div class="modal-contenido">
+                <div class="modal-cabecera">
+                    <h2>Nuevo Comentario</h2>
+                    <button type="button" id="btn-cerrar-modal-comentario" class="btn-cerrar">&times;</button>
+                </div>
+                <form id="form-comentario">
+                    <div id="contenedor-seleccion-pedido">
+                    </div>
+                    <div id="campos-comentario" style="display: none;">
+                        <div class="grupo-input">
+                            <label>Calificación:</label>
+                            <select id="select-estrellas" required>
+                                <option value="5">★★★★★ (5/5)</option>
+                                <option value="4">★★★★☆ (4/5)</option>
+                                <option value="3">★★★☆☆ (3/5)</option>
+                                <option value="2">★★☆☆☆ (2/5)</option>
+                                <option value="1">★☆☆☆☆ (1/5)</option>
+                            </select>
+                        </div>
+                        <div class="grupo-input">
+                            <label for="input-texto-comentario">Tu opinión:</label>
+                            <textarea id="input-texto-comentario" rows="4" placeholder="¿Qué tal estuvo tu arepa?" required></textarea>
+                        </div>
+                        <div class="modal-acciones">
+                            <button type="button" id="btn-cancelar-comentario" class="btn-secundario">Cancelar</button>
+                            <button type="submit" class="btn-primario">Publicar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </main>
     <footer class="footer">
         <p>© 2026 Arepas de la Casa. Todos los derechos reservados.</p>
