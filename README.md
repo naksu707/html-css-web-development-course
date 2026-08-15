@@ -78,8 +78,8 @@ An informational web page dedicated to the K-pop group BTS. Features stylized vi
 
 ---
 
-### 3. Arepas de la Casa
-A complete interactive web application for a traditional stuffed arepas restaurant. Users can explore the menu, filter items by category or search text, view dish details, and manage a shopping cart.
+### 3. Arepas de la Casa 🛒
+A complete interactive web application for a traditional stuffed arepas restaurant. Users can explore the menu, filter items by category or search text, view dish details, and manage a shopping cart. The initial UI/UX mockups for this project were designed with **Gemini**.
 
 - **Technologies:** HTML5, CSS3 (Flexbox/Grid), JavaScript (ES6+), JSON.
 - **Focus:** 
@@ -88,7 +88,7 @@ A complete interactive web application for a traditional stuffed arepas restaura
   - **Fully Responsive:** Layouts tailored for desktop, tablet, and mobile views.
 
 <p align="center">
-  <img src="/img/preview-arepa.png" width="750" alt="Arepas de la Casa - Desktop Preview">
+  <img src="/arepas-de-la-casa/img/preview-pc.png" width="750" alt="Arepas de la Casa - Desktop Preview">
 </p>
 
 ---
