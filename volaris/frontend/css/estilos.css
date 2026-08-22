@@ -1,0 +1,404 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #333333;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+.logo span {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.logo-link {
+  text-decoration: none;
+  color: inherit; 
+  display: inline-block;
+}
+
+.logo-link:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+/* --- HOVER Y SELECCIÓN EN EL MENÚ --- */
+
+.nav-links a {
+    position: relative;
+    text-decoration: none;
+    color: #475569;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 6px 4px;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #0f172a; 
+}
+
+.nav-links a:not(.btn-login)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #ff3838; 
+    transition: width 0.25s ease-in-out;
+}
+
+.nav-links a:not(.btn-login):hover::after {
+    width: 100%;
+}
+
+.nav-links a.active {
+    color: #ff3838;
+    font-weight: 600;
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links .btn-login:hover {
+    background-color: #e02e2e;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(255, 56, 56, 0.25);
+}
+
+.nav-links .btn-login {
+    background-color: #ff3838;
+    color: #ffffff;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.nav-links .btn-login:hover {
+    background-color: #e02e2e;
+}
+
+.btn-hamburguesa {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.btn-hamburguesa .icono {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+/* --- 2. BANNER PRINCIPAL (HERO) --- */
+.hero-banner {
+    position: relative;
+    height: 70vh;
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    padding: 60px 80px;
+}
+
+.hero-content {
+    max-width: 500px;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #f1f5f9;
+}
+
+.btn-destino {
+    display: inline-block;
+    background-color: #ff3838;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    position: absolute;
+    right: 80px;
+    bottom: 60px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-destino:hover {
+    background-color: #e02e2e;
+}
+
+/* --- TRANSICIÓN SUAVE DEL CARRUSEL --- */
+.hero-banner {
+    transition: background-image 0.6s ease-in-out;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.dot.active {
+    background-color: #ff3838;
+    transform: scale(1.2);
+}
+
+.hero-content h1 .subtitulo-origen {
+    display: block;             
+    font-size: 1.1rem;          
+    font-weight: 400;          
+    color: #e2e8f0;            
+    margin-top: 4px;           
+    letter-spacing: 0.5px;
+}
+
+/* --- 3. SECCIÓN DE INVITACIÓN --- */
+.intro-section {
+    text-align: center;
+    padding: 60px 20px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.intro-section h2 {
+    font-size: 1.8rem;
+    color: #1e293b;
+    margin-bottom: 15px;
+}
+
+.intro-section p {
+    color: #64748b;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* --- 4. FOOTER --- */
+.footer {
+    background-color: #f8fafc;
+    padding: 40px 20px 20px;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 0.85rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-links img,
+.social-links svg {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.social-links i {
+    font-size: 1.3rem;
+}
+
+.social-links a:hover {
+    color: #ff3838;
+    transform: translateY(-2px);
+}
+
+.footer hr {
+    border: none;
+    border-top: 1px solid #e2e8f0;
+    margin: 20px auto;
+    width: 80%;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN (Media Queries)
+   ========================================== */
+
+@media (max-width: 1024px) {
+    .hero-banner {
+        min-height: 75vh;
+        padding: 0 5%;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-content h1 .subtitulo-origen {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+        position: relative;
+    }
+
+    .btn-hamburguesa {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        gap: 15px;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero-banner {
+        min-height: 65vh;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding-bottom: 90px; 
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    .btn-destino {
+        position: absolute;
+        bottom: 45px;
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+        margin-top: 0;
+        white-space: nowrap;
+        padding: 10px 22px;
+        font-size: 0.85rem;
+    }
+
+    .carousel-dots {
+        bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-banner {
+        min-height: 60vh;
+    }
+
+    .hero-content h1 {
+        font-size: 1.7rem;
+    }
+
+    .hero-content h1 .subtitulo-origen {
+        font-size: 0.85rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    .btn-destino {
+        bottom: 40px;
+        padding: 8px 18px;
+        font-size: 0.8rem;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+}
