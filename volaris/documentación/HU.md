@@ -41,13 +41,13 @@
 
 ## Exploración, Búsqueda y Detalle de Viajes
 
-### HU-04: Buscador de Viajes en Landing Page
+### HU-04: Buscador de Viajes 
 **Como** cliente  
 **Quiero** buscar viajes por origen, destino, fechas y número de pasajeros  
 **Para** encontrar opciones de paquetes que se adapten a mi disponibilidad  
 
 * **Criterios de Aceptación:**
-  * **Dado** que el usuario está en la landing page.
+  * **Dado** que el usuario está explorar viajes.
   * **Cuando** ingresa los parámetros de búsqueda y presiona "Buscar".
   * **Entonces** el sistema filtra el catálogo y muestra únicamente las opciones que cumplen con los criterios solicitados.
 
