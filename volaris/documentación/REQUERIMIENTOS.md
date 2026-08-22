@@ -74,7 +74,7 @@
 | :--- | :--- | :--- |
 | **Usuarios** | Registra los datos de acceso y roles | `id`, `nombre`, `email`, `password_hash`, `rol`, `fecha_registro` |
 | **Agencias** | Información de empresas proveedoras de tours | `id`, `nombre_agencia`, `contacto`, `nit` |
-| **Viajes** | Oferta de vuelos y paquetes | `id`, `agencia_id`, `origen`, `destino`, `fecha_salida`, `cupos_totales`, `cupos_disponibles`, `precio_base`, `imagen-url` |
+| **Viajes** | Oferta de vuelos y paquetes | `id`, `agencia_id`, `origen`, `destino`, `fecha_salida`, `cupos_totales`, `cupos_disponibles`, `precio_base`, `imagen_url` |
 | **Reservas** | Transacciones de compra de cupos | `id`, `usuario_id`, `viaje_id`, `fecha_reserva`, `precio_final`, `estado` |
 | **Comentarios** | Evaluaciones de viajes finalizados | `id`, `usuario_id`, `viaje_id`, `calificacion`, `mensaje`, `fecha` |
 | **PQR** | Módulo de atención a solicitudes | `id`, `codigo_radicado`, `usuario_id`, `reserva_id`, `tipo`, `descripcion`, `estado`, `respuesta` |
