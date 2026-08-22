@@ -1,156 +1,112 @@
--- Script de generación masiva de datos estructurados para PostgreSQL
+-- ============================================================
+-- POBLADO DE DATOS (SEED)
+-- ============================================================
 
-DO $$
-DECLARE
-    
-    v_user_id INT;
-    v_agencia_id INT;
-    v_viaje_id INT;
-    v_reserva_id INT;
-    
-    v_nombres TEXT[] := ARRAY['Carlos', 'Lucia', 'Andres', 'Mariana', 'Esteban', 'Sofia', 'Mateo', 'Valentina', 'Santiago', 'Camila', 'Alejandro', 'Daniela', 'Gabriel', 'Isabella', 'Felipe', 'Natalia', 'Javier', 'Elena', 'Diego', 'Paula'];
-    v_apellidos TEXT[] := ARRAY['Mendoza', 'Gomez', 'Restrepo', 'Perez', 'Silva', 'Londono', 'Rojas', 'Cruz', 'Torres', 'Ramirez', 'Vargas', 'Morales', 'Castillo', 'Gutierrez', 'Ortiz', 'Chavez', 'Ruiz', 'Alvarez', 'Suarez', 'Romero'];
-    v_ciudades TEXT[] := ARRAY['Cali', 'Bogota', 'Medellin', 'Cartagena', 'Santa Marta', 'Manizales', 'Pereira', 'Bucaramanga', 'Pastos', 'San Andres', 'Leticia', 'Popayan'];
-    v_agencias_nombres TEXT[] := ARRAY['Andes Tours', 'Pacific Viajes', 'Caribe Express', 'Cafetero Adventures', 'Amazonas Discovery'];
-    
-BEGIN
+-- A. AGENCIAS (5 REGISTROS)
+INSERT INTO agencias (id, nombre_agencia, contacto, nit) VALUES
+(1, 'Volaris Colombia', 'contacto@volaris.com', '900123456-1'),
+(2, 'Expedia Latam', 'soporte@expedia.com', '900234567-2'),
+(3, 'Despegar Colombia', 'info@despegar.com', '900345678-3'),
+(4, 'Aviatur', 'atencion@aviatur.com', '900456789-4'),
+(5, 'On Vacation', 'reservas@onvacation.com', '900567890-5');
 
-    TRUNCATE TABLE 
-        estadisticas_mensuales,
-        pqrs,
-        resenas,
-        reservas,
-        viajes,
-        agencias,
-        usuarios
-    RESTART IDENTITY CASCADE;
+SELECT setval('agencias_id_seq', (SELECT MAX(id) FROM agencias));
 
-    FOR i IN 1..100 LOOP
-        INSERT INTO usuarios (
-            nombre, apellidos, email, password_hash, rol, tipo_doc, numero_doc, pais, departamento_provincia, telefono
-        ) VALUES (
-            v_nombres[1 + floor(random() * array_length(v_nombres, 1))::int],
-            v_apellidos[1 + floor(random() * array_length(v_apellidos, 1))::int],
-            'usuario_' || i || '@correo.com',
-            'hash_secure_password_' || i,
-            CASE WHEN i <= 5 THEN 'AGENCIA'::rol_usuario ELSE 'CLIENTE'::rol_usuario END,
-            (ARRAY['CC', 'CE', 'PASAPORTE'])[1 + floor(random() * 3)::int]::tipo_documento,
-            (1000000000 + i)::text,
-            'Colombia',
-            'Valle del Cauca',
-            '300' || lpad(i::text, 7, '0')
-        );
-    END LOOP;
+-- B. USUARIOS (150 REGISTROS: 5 AGENCIAS + 145 CLIENTES)
+INSERT INTO usuarios (nombre, email, password_hash, rol)
+SELECT 
+    a.nombre_agencia,
+    'admin@' || LOWER(REPLACE(a.nombre_agencia, ' ', '')) || '.com',
+    '$2b$12$eImiTXuWVxfM37uY4JANjO3p9qE4a.gE8N4wN8xHkY4z4L4w4L4w4',
+    'AGENCIA'::rol_usuario
+FROM agencias a;
 
-    FOR i IN 1..5 LOOP
-        INSERT INTO agencias (
-            usuario_id, nombre_agencia, nit, contacto_principal
-        ) VALUES (
-            i,
-            v_agencias_nombres[i],
-            '900' || lpad(i::text, 6, '0') || '-' || i,
-            (SELECT nombre || ' ' || apellidos FROM usuarios WHERE id = i)
-        );
-    END LOOP;
+INSERT INTO usuarios (nombre, email, password_hash, rol)
+SELECT 
+    'Usuario ' || i,
+    'usuario' || i || '@gmail.com',
+    '$2b$12$eImiTXuWVxfM37uY4JANjO3p9qE4a.gE8N4wN8xHkY4z4L4w4L4w4',
+    'CLIENTE'::rol_usuario
+FROM generate_series(1, 145) AS i;
 
-    FOR i IN 1..200 LOOP
-        v_agencia_id := 1 + floor(random() * 5)::int;
-        INSERT INTO viajes (
-            agencia_id, titulo, subtitulo, descripcion, origen, destino, tipo_cobertura,
-            duracion, categoria, fecha_salida, fecha_llegada, cupos_totales, cupos_disponibles, precio_base, imagen_url
-        ) VALUES (
-            v_agencia_id,
-            'Tour Especial ' || i,
-            'Increíble experiencia turística número ' || i,
-            'Disfruta de una experiencia inolvidable explorando los mejores paisajes.',
-            v_ciudades[1 + floor(random() * array_length(v_ciudades, 1))::int],
-            v_ciudades[1 + floor(random() * array_length(v_ciudades, 1))::int],
-            (ARRAY['LOCAL', 'NACIONAL', 'INTERNACIONAL'])[1 + floor(random() * 3)::int],
-            (ARRAY['PASADIA', 'FIN_DE_SEMANA', 'SEMANA_COMPLETA'])[1 + floor(random() * 3)::int]::duracion_categoria,
-            (ARRAY['PLAYA', 'MONTANA', 'CIUDAD', 'NIEVE'])[1 + floor(random() * 4)::int]::ambiente_categoria,
-            NOW() + (i || ' days')::interval,
-            NOW() + (i || ' days')::interval + '3 days'::interval,
-            50,
-            floor(random() * 50)::int,
-            (150000 + (random() * 1850000))::numeric(12,2),
-            'imagen_' || i || '.jpg'
-        );
-    END LOOP;
+-- C. VIAJES (200 REGISTROS)
+-- Insertar los primeros 6 viajes con su tipo_salida asignado
+INSERT INTO viajes (id, agencia_id, origen, destino, tipo_salida, categoria, descripcion, fecha_salida, cupos_totales, cupos_disponibles, precio_base, imagen_url) VALUES
+(1, 1, 'Cali', 'Cartagena', 'NACIONAL', 'PLAYA', 'Disfruta del mar Caribe, la ciudad amurallada y sus playas históricas.', '2026-09-15', 30, 12, 450000.00, 'https://experienciascontinental.com/wp-content/uploads/2024/08/Torre-del-Reloj-en-Cartagena-de-Indias-Colombia.webp'),
+(2, 1, 'Popayán', 'San Andrés', 'NACIONAL', 'PLAYA', 'Conoce el mar de los siete colores y sus increíbles arrecifes de coral.', '2026-10-01', 25, 8, 850000.00, 'https://media.staticontent.com/media/pictures/ecc404e8-9a99-46b0-a56a-ead992b5166e'),
+(3, 2, 'Bogotá', 'Valle del Cocora', 'LOCAL', 'MONTANA', 'Recorre el majestuoso paisaje de las palmas de cera en el Quindío.', '2026-09-20', 40, 20, 280000.00, 'https://cms.w2m.com/dam/Sites/W2FLY/noticias/valle-cocora-que-ver-que-llegar-guia-practica/valle-de-cocora-sendero-palmas-de-cera-praderas-verdes.webp?v=1778672002669'),
+(4, 3, 'Cali', 'La Guajira', 'NACIONAL', 'PLAYA', 'Aventura entre las dunas del desierto y el mar Caribe en el Cabo de la Vela.', '2026-11-05', 20, 5, 720000.00, 'https://colombia.travel/sites/default/files/Cabo_de_la_Vela%2C_Colombia.jpg'),
+(5, 4, 'Neiva', 'Desierto de la Tatacoa', 'LOCAL', 'CIUDAD', 'Pasa una noche astronómica inolvidable en el bosque seco tropical.', '2026-09-18', 35, 15, 310000.00, 'https://radionacional-v3.s3.amazonaws.com/s3fs-public/node/article/field_image/tatacoa.jpg'),
+(6, 5, 'Buenaventura', 'Parque del Café', 'LOCAL', 'CIUDAD', 'Vive la cultura cafetera, la diversión y la adrenalina de sus atracciones en el corazón del Quindío.', '2026-10-12', 50, 30, 250000.00, 'https://parquedelcafe.co/wp-content/uploads/2025/04/PDC_ParqueDelCafe_001.jpg');
 
-    FOR i IN 1..1500 LOOP
-        v_user_id := 6 + floor(random() * 95)::int; -- Solo clientes (IDs 6 al 100)
-        v_viaje_id := 1 + floor(random() * 200)::int;
-        INSERT INTO reservas (
-            usuario_id, viaje_id, cantidad_pasajeros, precio_total, aplico_descuento_50, estado, fecha_reserva
-        ) VALUES (
-            v_user_id,
-            v_viaje_id,
-            1 + floor(random() * 4)::int,
-            (200000 + (random() * 2000000))::numeric(12,2),
-            (random() > 0.85),
-            (ARRAY['PENDIENTE', 'CONFIRMADA', 'CANCELADA', 'COMPLETADA'])[1 + floor(random() * 4)::int]::estado_reserva,
-            NOW() - ((floor(random() * 180)) || ' days')::interval
-        );
-    END LOOP;
+-- Sincronizar la secuencia de viajes para evitar el error de llave duplicada
+SELECT setval('viajes_id_seq', (SELECT MAX(id) FROM viajes));
 
-    FOR i IN 1..2000 LOOP
-        v_reserva_id := 1 + floor(random() * 1500)::int;
-        
-        SELECT usuario_id, viaje_id INTO v_user_id, v_viaje_id 
-        FROM reservas WHERE id = v_reserva_id;
+-- Insertar los 194 viajes restantes variando tipos de salida
+INSERT INTO viajes (agencia_id, origen, destino, tipo_salida, categoria, descripcion, fecha_salida, cupos_totales, cupos_disponibles, precio_base, imagen_url)
+SELECT 
+    (1 + (i % 5)),
+    (ARRAY['Bogotá', 'Cali', 'Medellín', 'Barranquilla', 'Bucaramanga', 'Pereira'])[1 + (i % 6)],
+    (ARRAY['Santa Marta', 'Cancún', 'Punta Cana', 'Eje Cafetero', 'Amazonas', 'Tayrona', 'Miami', 'Madrid'])[1 + (i % 8)],
+    (ARRAY['LOCAL', 'NACIONAL', 'INTERNACIONAL']::tipo_salida_enum[])[1 + (i % 3)],
+    (ARRAY['PLAYA', 'MONTANA', 'CIUDAD', 'NIEVE'])[1 + (i % 4)],
+    'Explora este increíble destino lleno de cultura, naturaleza y experiencias inolvidables.',
+    CURRENT_DATE + (i || ' days')::INTERVAL,
+    30,
+    FLOOR(RANDOM() * 25 + 1)::INT,
+    (200000 + (RANDOM() * 800000))::NUMERIC(10,2),
+    'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80'
+FROM generate_series(7, 200) AS i;
 
-        INSERT INTO resenas (
-            usuario_id, viaje_id, reserva_id, calificacion, comentario, fecha_publicacion
-        ) VALUES (
-            v_user_id,
-            v_viaje_id,
-            v_reserva_id,
-            1 + floor(random() * 5)::int,
-            'Comentario de la reseña número ' || i || '. La experiencia cumplió con mis expectativas.',
-            NOW() - ((floor(random() * 90)) || ' days')::interval
-        )
-        ON CONFLICT (reserva_id) DO NOTHING; -
-    END LOOP;
+-- D. RESERVAS (1,200 REGISTROS)
+INSERT INTO reservas (usuario_id, viaje_id, fecha_reserva, precio_final, estado)
+SELECT 
+    (FLOOR(RANDOM() * 145) + 6)::INT,
+    (FLOOR(RANDOM() * 200) + 1)::INT,
+    CURRENT_TIMESTAMP - (i || ' hours')::INTERVAL,
+    (250000 + (RANDOM() * 750000))::NUMERIC(10,2),
+    (ARRAY['PENDIENTE', 'CONFIRMADA', 'CANCELADA', 'COMPLETADA']::estado_reserva[])[1 + (i % 4)]
+FROM generate_series(1, 1200) AS i;
 
-    FOR i IN 1..500 LOOP
-        v_user_id := 6 + floor(random() * 95)::int;
-        v_reserva_id := 1 + floor(random() * 1500)::int;
-        v_agencia_id := 1 + floor(random() * 5)::int;
+-- E. COMENTARIOS (1,800 REGISTROS)
+INSERT INTO comentarios (usuario_id, viaje_id, calificacion, mensaje, fecha)
+SELECT 
+    (FLOOR(RANDOM() * 145) + 6)::INT,
+    (FLOOR(RANDOM() * 200) + 1)::INT,
+    FLOOR(RANDOM() * 3 + 3)::INT,
+    (ARRAY[
+        '¡Una experiencia absolutamente increíble! Todo estuvo muy organizado.',
+        'El paisaje superó mis expectativas. Volvería a viajar con ellos.',
+        'Excelente servicio y puntualidad en los itinerarios.',
+        'Muy buen itinerario, los guías fueron súper amables y atentos.',
+        'Un viaje inolvidable, recomendable 100% para ir en familia.'
+    ])[1 + (i % 5)],
+    CURRENT_TIMESTAMP - (i || ' hours')::INTERVAL
+FROM generate_series(1, 1800) AS i;
 
-        INSERT INTO pqrs (
-            codigo_radicado, usuario_id, reserva_id, tipo, asunto, descripcion,
-            estado, prioridad, respuesta_oficial, agencia_responde_id, fecha_creacion
-        ) VALUES (
-            'PQR-2026-' || lpad(i::text, 5, '0'),
-            v_user_id,
-            v_reserva_id,
-            (ARRAY['PETICION', 'QUEJA', 'RECLAMO', 'SUGERENCIA'])[1 + floor(random() * 4)::int]::tipo_pqr,
-            'Asunto PQR ' || i,
-            'Descripción detallada del motivo de la PQR número ' || i,
-            (ARRAY['PENDIENTE', 'EN_PROCESO', 'RESUELTO', 'CERRADO'])[1 + floor(random() * 4)::int]::estado_pqr,
-            (ARRAY['BAJA', 'MEDIA', 'ALTA'])[1 + floor(random() * 3)::int]::prioridad_pqr,
-            'Respuesta oficial emitida para la PQR número ' || i,
-            v_agencia_id,
-            NOW() - ((floor(random() * 60)) || ' days')::interval
-        );
-    END LOOP;
+-- F. PQRS (500 REGISTROS)
+INSERT INTO pqr (codigo_radicado, usuario_id, reserva_id, tipo, descripcion, estado, respuesta)
+SELECT 
+    'RAD-' || 20260000 + i,
+    (FLOOR(RANDOM() * 145) + 6)::INT,
+    (FLOOR(RANDOM() * 1200) + 1)::INT,
+    (ARRAY['PETICION', 'QUEJA', 'RECLAMO', 'SUGERENCIA']::tipo_pqr[])[1 + (i % 4)],
+    'Solicitud de soporte e información referente a la reserva o itinerario programado.',
+    (ARRAY['PENDIENTE', 'EN_PROCESO', 'RESUELTO', 'CERRADO']::estado_pqr[])[1 + (i % 4)],
+    CASE WHEN (i % 2 = 0) THEN 'Su solicitud fue atendida satisfactoriamente por el equipo de soporte.' ELSE NULL END
+FROM generate_series(1, 500) AS i;
 
-    FOR i IN 1..2000 LOOP
-        v_agencia_id := 1 + (i % 5);
-        INSERT INTO estadisticas_mensuales (
-            agencia_id, anio, mes, total_reservas, tasa_conversion, pqrs_pendientes,
-            ingresos_totales, metricas_json
-        ) VALUES (
-            v_agencia_id,
-            2010 + (i / 60)::int, 
-            1 + (i % 12),
-            floor(random() * 100)::int,
-            (random() * 30)::numeric(5,2),
-            floor(random() * 10)::int,
-            (5000000 + (random() * 45000000))::numeric(15,2),
-            jsonb_build_object('satisfaccion', (3 + (random() * 2))::numeric(3,1), 'visitas_web', floor(random() * 5000))
-        )
-        ON CONFLICT (agencia_id, anio, mes) DO NOTHING; -- Mantiene la restricción UNIQUE (agencia_id, anio, mes)
-    END LOOP;
-
-END $$;
+-- G. ESTADÍSTICAS MENSUALES (2,000 REGISTROS)
+INSERT INTO estadisticas_mensuales (anio, mes, destino_top_id, total_reservas, ingresos_totales, datos_json)
+SELECT 
+    2020 + (i % 7),
+    1 + (i % 12),
+    (FLOOR(RANDOM() * 200) + 1)::INT,
+    FLOOR(RANDOM() * 50 + 10)::INT,
+    (5000000 + (RANDOM() * 45000000))::NUMERIC(12,2),
+    jsonb_build_object(
+        'visitas_web', FLOOR(RANDOM() * 5000 + 1000),
+        'satisfaccion_promedio', ROUND((RANDOM() * 1.5 + 3.5)::numeric, 2),
+        'canal_principal', 'Web App'
+    )
+FROM generate_series(1, 2000) AS i;
